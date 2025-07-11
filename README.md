@@ -23,8 +23,9 @@ A modular pipeline for predicting toxicity and safety of small-molecule compound
 
 ## 📁 Directory Structure
 
+``` 
 convexia_demo/
-├── run_pipeline.py # Main pipeline entry point
+├── run_pipeline.py # Main pipeline entry point 
 ├── outputs/ # Stores JSON results
 ├── logs/ # Logging directory
 ├── models/ # Trained model files
@@ -45,8 +46,7 @@ convexia_demo/
 │ ├── structural_alerts.py # PAINS + BRENK alerts
 │ ├── scoring.py # Composite score + penalties
 │ └── explainability.py # Confidence & module disagreement checks
-
-text
+```
 
 ## 🧪 How to Run
 
@@ -54,11 +54,17 @@ text
 # Step 1: Activate your environment
 conda activate toxicity_classifier
 
-# Step 2: Run the pipeline
+# Step 2: Install the requirements
+pip install -r requirements.txt
+
+# Step 3: Run the pipeline
 python run_pipeline.py
-You will be prompted to enter a SMILES string. The system will run all modules and save the result as a JSON file in outputs/.
 
 ```
+
+You will be prompted to enter a SMILES string. The system will run all modules and save the result as a JSON file in outputs/.
+
+
 
 ##  🔬 Sample Output (Truncated)
 

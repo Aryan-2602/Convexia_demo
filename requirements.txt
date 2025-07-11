@@ -21,6 +21,11 @@ pytest==7.4.4
 
 PyTDC
 
+xgboost 
+
+scikit-learn
+joblib
+PyTDC
 DeepPurpose 
 
 # Optional: torch or tensorflow if future models use DL
