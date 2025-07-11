@@ -58,7 +58,9 @@ conda activate toxicity_classifier
 python run_pipeline.py
 You will be prompted to enter a SMILES string. The system will run all modules and save the result as a JSON file in outputs/.
 
-🔬 Sample Output (Truncated)
+```
+
+##  🔬 Sample Output (Truncated)
 
 json
 {
@@ -85,7 +87,9 @@ json
   ],
   "model_confidence": 0.93
 }
-⚙️ Composite Score Logic
+
+
+## ⚙️ Composite Score Logic
 
 The final score is calculated as a weighted sum:
 
@@ -99,7 +103,7 @@ The final score is calculated as a weighted sum:
 10% Structural Alerts Penalty
 Final score is clipped between 0 and 1 and rounded to two decimals.
 
-📌 Notes
+##  📌 Notes
 
 Logging is enabled both to console and file (logs/pipeline.log).
 JSON filenames are uniquely generated using the compound's canonical SMILES.
@@ -107,17 +111,23 @@ Stub models (e.g., mito, neuro, morpho) can be replaced by actual trained models
 To retrain general toxicity models, run:
 bash
 python modules/general_toxicity.py
-👩‍🔬 Acknowledgements
+
+
+##  👩‍🔬 Acknowledgements
 
 TDC (Therapeutics Data Commons) for access to toxicity datasets
 RDKit for molecular featurization and alerting
 XGBoost for all classifier and regressor models
-🧠 TODOs
+
+
+##  🧠 TODOs
 
 Replace stubbed models (mito, neuro, morpho, immune) with trained versions
 Add uncertainty quantification for all predictors
 Incorporate graph-based models and image-based inference where applicable
 Add Streamlit/Gradio frontend for live demos
-📬 Contact
+
+
+##  📬 Contact
 
 For issues, contributions, or collaborations, feel free to reach out!
