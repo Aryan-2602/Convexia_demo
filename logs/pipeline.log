@@ -1,0 +1,42 @@
+2025-07-11 00:52:20.757 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CCO
+2025-07-11 00:52:20.803 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-11 00:52:20.807 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CCO
+2025-07-11 00:52:20.813 | INFO     | modules.structural_alerts:check_structural_alerts:6 - Checking structural alerts for SMILES: CCO
+2025-07-11 00:52:20.813 | DEBUG    | modules.structural_alerts:check_structural_alerts:14 - Initializing structural alert catalogs: PAINS + BRENK
+2025-07-11 00:52:20.838 | INFO     | modules.structural_alerts:check_structural_alerts:24 - 0 structural alerts triggered.
+2025-07-11 00:52:20.844 | INFO     | modules.scoring:calculate_alert_penalty:25 - Calculating alert penalty for 0 alerts: 0.0
+2025-07-11 00:52:20.844 | INFO     | modules.general_toxicity:predict_general_toxicity:128 - Running general toxicity prediction for: CCO
+2025-07-11 00:52:20.890 | DEBUG    | modules.general_toxicity:predict_general_toxicity:137 - Models loaded successfully.
+2025-07-11 00:52:20.904 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CCO
+2025-07-11 00:52:20.905 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-11 00:52:20.906 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CCO
+2025-07-11 00:52:20.907 | DEBUG    | modules.general_toxicity:convert_smiles_column:23 - Encoded 1 SMILES entries into ECFP + MACCS features.
+2025-07-11 00:52:20.908 | DEBUG    | modules.general_toxicity:predict_general_toxicity:140 - SMILES features encoded for prediction.
+2025-07-11 00:52:21.170 | INFO     | modules.general_toxicity:predict_general_toxicity:146 - Predictions — LD50: 1.47, Carcinogenicity: 0.84, General Tox: 0.00
+2025-07-11 00:52:21.172 | INFO     | modules.organ_toxicity:predict_organ_toxicity:5 - Predicting organ toxicity for: CCO
+2025-07-11 00:52:21.173 | DEBUG    | modules.organ_toxicity:predict_organ_toxicity:18 - Stubbed organ toxicity scores: {'cardiotoxicity': 0.7995533161641255, 'hepatotoxicity': 0.6996407095701938, 'nephrotoxicity': 0.4800621067607882}
+2025-07-11 00:52:21.173 | INFO     | modules.neurotoxicity:predict_neurotoxicity:5 - Predicting neurotoxicity for: CCO
+2025-07-11 00:52:21.173 | DEBUG    | modules.neurotoxicity:predict_neurotoxicity:9 - Stubbed neurotoxicity score: 0.214
+2025-07-11 00:52:21.173 | INFO     | modules.mito_toxicity:predict_mito_toxicity:5 - Predicting mitochondrial toxicity for: CCO
+2025-07-11 00:52:21.173 | DEBUG    | modules.mito_toxicity:predict_mito_toxicity:10 - Stubbed mitochondrial toxicity score: 0.515
+2025-07-11 00:52:21.173 | INFO     | modules.tissue_accumulation:predict_tissue_accumulation:130 - Predicting tissue accumulation for: CCO
+2025-07-11 00:52:21.188 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CCO
+2025-07-11 00:52:21.189 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-11 00:52:21.189 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CCO
+2025-07-11 00:52:21.426 | DEBUG    | modules.tissue_accumulation:predict_tissue_accumulation:160 - Tissue accumulation result: {'brain': 'high', 'kidney': 'low', 'liver': 'high'}
+2025-07-11 00:52:21.427 | INFO     | modules.scoring:compute_accumulation_penalty:30 - Calculating tissue accumulation penalty
+2025-07-11 00:52:21.427 | DEBUG    | modules.scoring:compute_accumulation_penalty:31 - Tissue accumulation input: {'brain': 'high', 'kidney': 'low', 'liver': 'high'}
+2025-07-11 00:52:21.427 | DEBUG    | modules.scoring:compute_accumulation_penalty:38 - brain: high → Penalty 0.1
+2025-07-11 00:52:21.427 | DEBUG    | modules.scoring:compute_accumulation_penalty:38 - kidney: low → Penalty 0
+2025-07-11 00:52:21.427 | DEBUG    | modules.scoring:compute_accumulation_penalty:38 - liver: high → Penalty 0.1
+2025-07-11 00:52:21.427 | DEBUG    | modules.scoring:compute_accumulation_penalty:42 - Total accumulation penalty: 0.2
+2025-07-11 00:52:21.427 | INFO     | modules.morpho_cytotoxicity:predict_morphological_cytotoxicity:5 - Predicting morphological cytotoxicity for: CCO
+2025-07-11 00:52:21.427 | DEBUG    | modules.morpho_cytotoxicity:predict_morphological_cytotoxicity:9 - Stubbed morphological cytotoxicity score: 0.436
+2025-07-11 00:52:21.427 | INFO     | modules.immunotoxicity:predict_immunotoxicity:5 - Predicting immunotoxicity for: CCO
+2025-07-11 00:52:21.427 | DEBUG    | modules.immunotoxicity:predict_immunotoxicity:10 - Immunotoxicity score (stub): 0.0516
+2025-07-11 00:52:21.428 | INFO     | modules.explainability:compute_confidence:7 - Computed model confidence: 0.92
+2025-07-11 00:52:21.428 | DEBUG    | modules.explainability:find_disagreements:11 - Checking for module disagreements in organ toxicity scores.
+2025-07-11 00:52:21.428 | INFO     | modules.explainability:find_disagreements:24 - No significant disagreements found between organ toxicity modules.
+2025-07-11 00:52:21.428 | INFO     | modules.scoring:compute_composite_score:4 - Computing composite toxicity score
+2025-07-11 00:52:21.428 | DEBUG    | modules.scoring:compute_composite_score:5 - Input values: {'general_tox': 0.0, 'organ_tox_avg': 0.6597520441650359, 'neurotox': 0.21387235122852888, 'mito_tox': 0.5150308768880929, 'morpho_tox': 0.43588480308951305, 'accumulation_penalty': 0.2, 'immunotox': 0.05160850778729409, 'structural_alert_penalty': 0.0}
+2025-07-11 00:52:21.428 | DEBUG    | modules.scoring:compute_composite_score:19 - Final composite score: 0.28
