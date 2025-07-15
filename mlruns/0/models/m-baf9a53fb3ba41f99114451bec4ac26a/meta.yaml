@@ -1,0 +1,10 @@
+artifact_location: file:///Users/aryanmaheshwari/convexia_demo/mlruns/0/models/m-baf9a53fb3ba41f99114451bec4ac26a/artifacts
+creation_timestamp: 1752561619811
+experiment_id: '0'
+last_updated_timestamp: 1752561623220
+model_id: m-baf9a53fb3ba41f99114451bec4ac26a
+model_type: null
+name: bbb_model
+source_run_id: 2ea37555aaf447488a3ba5c938e4113f
+status: 2
+status_message: null

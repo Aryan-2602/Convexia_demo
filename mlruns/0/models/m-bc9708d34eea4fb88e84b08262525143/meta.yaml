@@ -1,0 +1,10 @@
+artifact_location: file:///Users/aryanmaheshwari/convexia_demo/mlruns/0/models/m-bc9708d34eea4fb88e84b08262525143/artifacts
+creation_timestamp: 1752561867006
+experiment_id: '0'
+last_updated_timestamp: 1752561869690
+model_id: m-bc9708d34eea4fb88e84b08262525143
+model_type: null
+name: vd_model
+source_run_id: c3051b30668b4b0a9149f456499b0f54
+status: 2
+status_message: null

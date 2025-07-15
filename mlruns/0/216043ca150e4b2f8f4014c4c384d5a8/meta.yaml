@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/aryanmaheshwari/convexia_demo/mlruns/0/216043ca150e4b2f8f4014c4c384d5a8/artifacts
+end_time: 1752561698089
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 216043ca150e4b2f8f4014c4c384d5a8
+run_name: OCT2_Model_Training
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752561623234
+status: 3
+tags: []
+user_id: aryanmaheshwari

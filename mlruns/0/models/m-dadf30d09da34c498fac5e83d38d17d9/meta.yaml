@@ -1,0 +1,10 @@
+artifact_location: file:///Users/aryanmaheshwari/convexia_demo/mlruns/0/models/m-dadf30d09da34c498fac5e83d38d17d9/artifacts
+creation_timestamp: 1752560633413
+experiment_id: '0'
+last_updated_timestamp: 1752560636719
+model_id: m-dadf30d09da34c498fac5e83d38d17d9
+model_type: null
+name: carcinogenicity_model
+source_run_id: 5c4a44d6dc1042daad653eac7ca7873c
+status: 2
+status_message: null
