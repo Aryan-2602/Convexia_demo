@@ -1,0 +1,6 @@
+outs:
+- md5: 1531907036da27f5b29fc2dfba16ba84.dir
+  size: 54514
+  nfiles: 3
+  hash: md5
+  path: oct2

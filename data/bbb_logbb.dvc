@@ -1,0 +1,6 @@
+outs:
+- md5: c576f80856b660445777c09dde808c38.dir
+  size: 204704
+  nfiles: 3
+  hash: md5
+  path: bbb_logbb
