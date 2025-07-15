@@ -28,6 +28,11 @@ joblib
 PyTDC
 DeepPurpose 
 
+fastapi 
+celery 
+redis 
+uvicorn
+
 # Optional: torch or tensorflow if future models use DL
 # torch==2.2.0
 # tensorflow==2.15.0

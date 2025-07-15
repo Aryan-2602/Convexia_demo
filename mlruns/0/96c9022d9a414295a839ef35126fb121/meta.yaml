@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/aryanmaheshwari/convexia_demo/mlruns/0/96c9022d9a414295a839ef35126fb121/artifacts
+end_time: 1752560969858
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 96c9022d9a414295a839ef35126fb121
+run_name: GeneralTox_Model_Training
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752560636729
+status: 3
+tags: []
+user_id: aryanmaheshwari
