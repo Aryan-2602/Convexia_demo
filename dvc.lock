@@ -1,0 +1,50 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python train_models.py
+    deps:
+    - path: data/bbb_logbb
+      hash: md5
+      md5: c576f80856b660445777c09dde808c38.dir
+      size: 204704
+      nfiles: 3
+    - path: data/oct2
+      hash: md5
+      md5: 1531907036da27f5b29fc2dfba16ba84.dir
+      size: 54514
+      nfiles: 3
+    - path: data/vd
+      hash: md5
+      md5: 79aa875a76ad05af025ae999164c133b.dir
+      size: 85727
+      nfiles: 3
+    - path: train_models.py
+      hash: md5
+      md5: 747d9acb70f96efd8182cb2173364a4d
+      size: 482
+      isexec: true
+    outs:
+    - path: models/bbb_xgb_model.pkl
+      hash: md5
+      md5: de810f230a5d83210cfa417c2348dc46
+      size: 526301
+    - path: models/carcinogenicity_xgb_model.pkl
+      hash: md5
+      md5: 05516fb915336669693722ec4a87c22a
+      size: 372134
+    - path: models/generaltox_xgb_model.pkl
+      hash: md5
+      md5: 2b9a5f23ddd5c1aad42035cbc0cfd805
+      size: 501479
+    - path: models/ld50_xgb_model.pkl
+      hash: md5
+      md5: c88a49c6ab1cc1b1f4222fd2bbad4a30
+      size: 2754029
+    - path: models/oct2_xgb_model.pkl
+      hash: md5
+      md5: 08b6ccbe9dcfe82841a0972e5954e9c6
+      size: 490941
+    - path: models/vd_xgb_model.pkl
+      hash: md5
+      md5: a92a6149ef3787a11915e23cefb81242
+      size: 915915
