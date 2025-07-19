@@ -6,7 +6,7 @@ from xgboost import XGBRegressor, XGBClassifier
 from sklearn.metrics import mean_squared_error, r2_score, accuracy_score, f1_score
 from tdc.single_pred import Tox
 from tdc.utils import retrieve_label_name_list
-from input_preprocessing import preprocess_smiles
+from modules.input_preprocessing import preprocess_smiles
 from pathlib import Path
 import os
 import mlflow

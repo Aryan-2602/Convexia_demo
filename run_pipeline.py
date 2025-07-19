@@ -19,6 +19,11 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from rdkit import Chem
 from datetime import datetime
 
+from model_registry import MODEL_VERSIONS
+# from db.database import get_db_session  # assuming you have this
+from sqlalchemy import text
+
+
 
 def run_toxicity_pipeline(smiles: str):
     try:
@@ -102,6 +107,20 @@ def run_toxicity_pipeline(smiles: str):
 
     except Exception as e:
         return {"error": str(e)}
+    
+def check_and_evict_if_version_changed(db, model_name, current_version):
+    existing = db.execute(
+        text("SELECT DISTINCT model_version FROM predictions WHERE model_name = :name"),
+        {"name": model_name}
+    ).fetchall()
+    
+    for row in existing:
+        if row[0] != current_version:
+            db.execute(
+                text("DELETE FROM predictions WHERE model_name = :name"),
+                {"name": model_name}
+            )
+            db.commit()
 
 
 if __name__ == "__main__":
