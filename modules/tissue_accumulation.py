@@ -4,7 +4,7 @@ import pandas as pd
 from tqdm import tqdm
 from xgboost import XGBRegressor, XGBClassifier
 from sklearn.metrics import accuracy_score, f1_score, mean_squared_error, r2_score
-from input_preprocessing import preprocess_smiles
+from modules.input_preprocessing import preprocess_smiles
 from utils.logger import logger
 import mlflow
 import mlflow.sklearn

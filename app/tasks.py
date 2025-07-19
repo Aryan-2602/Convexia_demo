@@ -4,13 +4,15 @@ import os
 # Add project root (convexia_demo/) to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from app.celery_utils import celery_app
-from run_pipeline import run_toxicity_pipeline
+from celery import Celery
+from utils.predictor import run_all_models
 from utils.logger import logger
 
-@celery_app.task(name="toxicity_pipeline.run")
+celery = Celery(__name__, broker="redis://localhost:6379/0")
+
+@celery.task(name="run_pipeline_task")
 def run_pipeline_task(smiles: str):
-    logger.info(f"Received SMILES for prediction: {smiles}")
-    result = run_toxicity_pipeline(smiles)
-    logger.info(f"Pipeline completed for SMILES: {smiles}")
-    return result
+    logger.info(f"Running prediction task for SMILES: {smiles}")
+    predictions = run_all_models(smiles)
+    logger.success(f"Predictions complete for {smiles}")
+    return predictions
