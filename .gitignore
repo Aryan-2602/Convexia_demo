@@ -1,2 +1,4 @@
 .dvc/cache/
 mlruns/
+outputs/
+/outputs

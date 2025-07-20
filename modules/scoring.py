@@ -3,6 +3,9 @@ from utils.logger import logger
 def compute_composite_score(values: dict):
     logger.info("Computing composite toxicity score")
     logger.debug(f"Input values: {values}")
+    
+    for key, value in values.items():
+        logger.debug(f"[SCORING] {key} = {value} ({type(value)})")
 
     score = (
         0.15 * values["general_tox"] +
@@ -12,8 +15,12 @@ def compute_composite_score(values: dict):
         0.1 * values["morpho_tox"] +
         0.1 * values["accumulation_penalty"] +
         0.1 * values["immunotox"] +
-        0.1 * values["structural_alert_penalty"]
+        0.1 * values["structural_alert_penalty"]+
+        0.2 * values["tox21_score"]+
+        0.2 * values["ames_toxicity_score"]+
+        100 * values['herg_toxicity_score']
     )
+    
 
     final_score = round(min(max(score, 0), 1), 2)
     logger.debug(f"Final composite score: {final_score}")
