@@ -10,9 +10,9 @@ def predict_organ_toxicity(smiles: str):
     # Merlin is stubbed 
 
     result = {
-        "cardiotoxicity": np.random.uniform(0, 1),
-        "hepatotoxicity": np.random.uniform(0, 1),
-        "nephrotoxicity": np.random.uniform(0, 1)
+        "cardiotoxicity": float(np.random.uniform(0, 1)),
+        "hepatotoxicity": float(np.random.uniform(0, 1)),
+        "nephrotoxicity": float(np.random.uniform(0, 1))
     }
 
     logger.debug(f"Stubbed organ toxicity scores: {result}")
