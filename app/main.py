@@ -7,8 +7,11 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from scheduler import schedule_cleanup
 
+@asynccontextmanager
+async def lifespan(app:FastAPI):
+    schedule_cleanup()
 
-app = FastAPI(title="Toxicity Prediction API")
+app = FastAPI(title="Toxicity Prediction API",lifespan=lifespan)
 
 class SMILESInput(BaseModel):
     smiles: str
@@ -34,6 +37,4 @@ def get_task_result(task_id: str):
     else:
         return {"status": result.state}
     
-@asynccontextmanager
-async def lifespan(app:FastAPI):
-    schedule_cleanup()
+

@@ -4896,3 +4896,973 @@
 2025-07-20 16:11:03.371 | DEBUG    | modules.scoring:compute_composite_score:8 - [SCORING] ames_toxicity_score = 0.9901 (<class 'float'>)
 2025-07-20 16:11:03.371 | DEBUG    | modules.scoring:compute_composite_score:8 - [SCORING] herg_toxicity_score = 0.0010042034555226564 (<class 'float'>)
 2025-07-20 16:11:03.371 | DEBUG    | modules.scoring:compute_composite_score:26 - Final composite score: 0.77
+2025-07-20 18:57:25.621 | INFO     | modules.general_toxicity:train_ld50_model:38 - Training LD50 regression model...
+2025-07-20 18:57:25.648 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: BrC(Br)Br
+2025-07-20 18:57:25.671 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.675 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for BrC(Br)Br
+2025-07-20 18:57:25.687 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CBr
+2025-07-20 18:57:25.688 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.688 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CBr
+2025-07-20 18:57:25.693 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: Brc1ccc(-c2ccc(Br)c(Br)c2Br)c(Br)c1Br
+2025-07-20 18:57:25.697 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.697 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for Brc1ccc(-c2ccc(Br)c(Br)c2Br)c(Br)c1Br
+2025-07-20 18:57:25.702 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: S=C=Nc1ccc(Br)cc1
+2025-07-20 18:57:25.703 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.704 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for S=C=Nc1ccc(Br)cc1
+2025-07-20 18:57:25.707 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: Brc1ccccc1
+2025-07-20 18:57:25.708 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.709 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for Brc1ccccc1
+2025-07-20 18:57:25.712 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: O=C1CN=C(c2ccccn2)c2cc(Br)ccc2N1
+2025-07-20 18:57:25.719 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.719 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for O=C1CN=C(c2ccccn2)c2cc(Br)ccc2N1
+2025-07-20 18:57:25.722 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: BrCBr
+2025-07-20 18:57:25.723 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.723 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for BrCBr
+2025-07-20 18:57:25.726 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: O=P(OCC(Br)CBr)(OCC(Br)CBr)OCC(Br)CBr
+2025-07-20 18:57:25.734 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.735 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for O=P(OCC(Br)CBr)(OCC(Br)CBr)OCC(Br)CBr
+2025-07-20 18:57:25.738 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: BrCC=CCBr
+2025-07-20 18:57:25.739 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.739 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for BrCC=CCBr
+2025-07-20 18:57:25.742 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: BrCCBr
+2025-07-20 18:57:25.743 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.743 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for BrCCBr
+2025-07-20 18:57:25.746 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: O=C(CCBr)N1CCN(C(=O)CCBr)CC1
+2025-07-20 18:57:25.758 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.759 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for O=C(CCBr)N1CCN(C(=O)CCBr)CC1
+2025-07-20 18:57:25.762 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C#CCOCC#C
+2025-07-20 18:57:25.765 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.765 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C#CCOCC#C
+2025-07-20 18:57:25.768 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C(CC1CO1)OCCC1CO1
+2025-07-20 18:57:25.774 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.775 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C(CC1CO1)OCCC1CO1
+2025-07-20 18:57:25.778 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc(COCc2ccccc2)cc1
+2025-07-20 18:57:25.784 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.785 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc(COCc2ccccc2)cc1
+2025-07-20 18:57:25.789 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C[Si](C)(C)OP(=O)(O[Si](C)(C)C)O[Si](C)(C)C
+2025-07-20 18:57:25.802 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.803 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C[Si](C)(C)OP(=O)(O[Si](C)(C)C)O[Si](C)(C)C
+2025-07-20 18:57:25.805 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C[Si](Cl)(Cl)CCCC#N
+2025-07-20 18:57:25.807 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.808 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C[Si](Cl)(Cl)CCCC#N
+2025-07-20 18:57:25.811 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C1CC(=O)N(c2cccc([N+](=O)[O-])c2)C1=O
+2025-07-20 18:57:25.816 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.816 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C1CC(=O)N(c2cccc([N+](=O)[O-])c2)C1=O
+2025-07-20 18:57:25.819 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC#N
+2025-07-20 18:57:25.820 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.820 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC#N
+2025-07-20 18:57:25.823 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=O)NCNC(=O)C=C
+2025-07-20 18:57:25.826 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.827 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=O)NCNC(=O)C=C
+2025-07-20 18:57:25.829 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=O)OC1CC2CCC1C2
+2025-07-20 18:57:25.835 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.835 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=O)OC1CC2CCC1C2
+2025-07-20 18:57:25.838 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=O)OCCC#N
+2025-07-20 18:57:25.842 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.842 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=O)OCCC#N
+2025-07-20 18:57:25.845 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=O)OCCOC(=O)C=C
+2025-07-20 18:57:25.848 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.848 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=O)OCCOC(=O)C=C
+2025-07-20 18:57:25.852 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=O)OCCOc1ccccc1
+2025-07-20 18:57:25.857 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.857 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=O)OCCOc1ccccc1
+2025-07-20 18:57:25.860 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=O)OCCOCCOC(=O)C=C
+2025-07-20 18:57:25.866 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.867 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=O)OCCOCCOC(=O)C=C
+2025-07-20 18:57:25.870 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC=C
+2025-07-20 18:57:25.871 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.872 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC=C
+2025-07-20 18:57:25.875 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC=CC=C
+2025-07-20 18:57:25.876 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.876 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC=CC=C
+2025-07-20 18:57:25.879 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC=O
+2025-07-20 18:57:25.879 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.879 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC=O
+2025-07-20 18:57:25.883 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=Cc1ccccn1
+2025-07-20 18:57:25.885 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.885 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=Cc1ccccn1
+2025-07-20 18:57:25.888 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=Cc1ccncc1
+2025-07-20 18:57:25.890 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.891 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=Cc1ccncc1
+2025-07-20 18:57:25.894 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC1CC2C=CC1C2
+2025-07-20 18:57:25.897 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.898 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC1CC2C=CC1C2
+2025-07-20 18:57:25.901 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC1CCC2OC2C1
+2025-07-20 18:57:25.905 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.905 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC1CCC2OC2C1
+2025-07-20 18:57:25.909 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC1OCC2(CO1)COC(C=C)OC2
+2025-07-20 18:57:25.921 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.922 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC1OCC2(CO1)COC(C=C)OC2
+2025-07-20 18:57:25.925 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCc1ccc2c(c1)OCO2
+2025-07-20 18:57:25.929 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.930 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCc1ccc2c(c1)OCO2
+2025-07-20 18:57:25.935 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCc1cccc(CC=C)c1OCC1CO1
+2025-07-20 18:57:25.943 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.944 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCc1cccc(CC=C)c1OCC1CO1
+2025-07-20 18:57:25.946 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCCC=O
+2025-07-20 18:57:25.947 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.948 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCCC=O
+2025-07-20 18:57:25.951 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCN=C=S
+2025-07-20 18:57:25.952 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.952 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCN=C=S
+2025-07-20 18:57:25.955 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCNCC=C
+2025-07-20 18:57:25.957 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.957 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCNCC=C
+2025-07-20 18:57:25.960 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC(=O)C=CC(=O)OCC=C
+2025-07-20 18:57:25.964 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.965 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC(=O)C=CC(=O)OCC=C
+2025-07-20 18:57:25.968 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC(=O)c1ccccc1C(=O)OCC=C
+2025-07-20 18:57:25.977 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.979 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC(=O)c1ccccc1C(=O)OCC=C
+2025-07-20 18:57:25.985 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC(=O)Cc1ccccc1
+2025-07-20 18:57:25.990 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:25.990 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC(=O)Cc1ccccc1
+2025-07-20 18:57:25.993 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC(=O)CCC1CCCCC1
+2025-07-20 18:57:26.004 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.005 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC(=O)CCC1CCCCC1
+2025-07-20 18:57:26.008 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC(OCC=C)C(OCC=C)OCC=C
+2025-07-20 18:57:26.024 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.025 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC(OCC=C)C(OCC=C)OCC=C
+2025-07-20 18:57:26.028 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC=C
+2025-07-20 18:57:26.030 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.030 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC=C
+2025-07-20 18:57:26.036 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOc1ccccc1C(=O)NC1CCCCC1
+2025-07-20 18:57:26.055 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.056 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOc1ccccc1C(=O)NC1CCCCC1
+2025-07-20 18:57:26.059 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC1CC2CC1CC2OCC=C
+2025-07-20 18:57:26.070 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.071 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC1CC2CC1CC2OCC=C
+2025-07-20 18:57:26.074 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOCC=C
+2025-07-20 18:57:26.075 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.076 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOCC=C
+2025-07-20 18:57:26.079 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CN1CC1
+2025-07-20 18:57:26.079 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.080 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CN1CC1
+2025-07-20 18:57:26.083 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CN1CCCC1=O
+2025-07-20 18:57:26.085 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.085 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CN1CCCC1=O
+2025-07-20 18:57:26.088 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=COC(=O)c1ccccc1
+2025-07-20 18:57:26.091 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.091 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=COC(=O)c1ccccc1
+2025-07-20 18:57:26.094 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=COCCOCCOC=C
+2025-07-20 18:57:26.099 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.100 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=COCCOCCOC=C
+2025-07-20 18:57:26.103 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CS(=O)(=O)C=C
+2025-07-20 18:57:26.104 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.105 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CS(=O)(=O)C=C
+2025-07-20 18:57:26.108 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=O
+2025-07-20 18:57:26.108 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.108 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=O
+2025-07-20 18:57:26.111 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc(-c2ccc(C(c3ccccc3)n3ccnc3)cc2)cc1
+2025-07-20 18:57:26.129 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.129 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc(-c2ccc(C(c3ccccc3)n3ccnc3)cc2)cc1
+2025-07-20 18:57:26.133 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc(N=Nc2ccccc2)cc1
+2025-07-20 18:57:26.136 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.137 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc(N=Nc2ccccc2)cc1
+2025-07-20 18:57:26.140 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc(P(c2ccccc2)c2ccccc2)cc1
+2025-07-20 18:57:26.149 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.149 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc(P(c2ccccc2)c2ccccc2)cc1
+2025-07-20 18:57:26.152 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc(-c2ccccn2)nc1
+2025-07-20 18:57:26.156 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.157 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc(-c2ccccn2)nc1
+2025-07-20 18:57:26.160 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccncc1
+2025-07-20 18:57:26.160 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.161 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccncc1
+2025-07-20 18:57:26.163 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc2c(c1)-c1cccc3cccc-2c13
+2025-07-20 18:57:26.169 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.170 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc2c(c1)-c1cccc3cccc-2c13
+2025-07-20 18:57:26.173 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc2ncccc2c1
+2025-07-20 18:57:26.175 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.175 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc2ncccc2c1
+2025-07-20 18:57:26.178 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc2ccccc2c1
+2025-07-20 18:57:26.180 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.181 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc2ccccc2c1
+2025-07-20 18:57:26.184 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1=CC=CCC=C1
+2025-07-20 18:57:26.186 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.186 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1=CC=CCC=C1
+2025-07-20 18:57:26.189 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1C2CC3OC3C2CC2OC12
+2025-07-20 18:57:26.191 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.192 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1C2CC3OC3C2CC2OC12
+2025-07-20 18:57:26.195 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1=CCC(C2CC3C=CC2C3)CC1
+2025-07-20 18:57:26.202 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.203 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1=CCC(C2CC3C=CC2C3)CC1
+2025-07-20 18:57:26.206 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CC2CC1C1SSSC21
+2025-07-20 18:57:26.208 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.209 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CC2CC1C1SSSC21
+2025-07-20 18:57:26.211 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CC2OC2CC1C1CO1
+2025-07-20 18:57:26.215 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.216 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CC2OC2CC1C1CO1
+2025-07-20 18:57:26.219 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc(Nc2ccc(NC3CCCCC3)cc2)cc1
+2025-07-20 18:57:26.240 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.241 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc(Nc2ccc(NC3CCCCC3)cc2)cc1
+2025-07-20 18:57:26.244 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc2c(c1)CCCC2
+2025-07-20 18:57:26.246 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.247 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc2c(c1)CCCC2
+2025-07-20 18:57:26.250 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CCC2CCCCC2C1
+2025-07-20 18:57:26.254 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.255 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CCC2CCCCC2C1
+2025-07-20 18:57:26.258 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CCC2OC2C1
+2025-07-20 18:57:26.260 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.260 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CCC2OC2C1
+2025-07-20 18:57:26.263 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CCCCC1
+2025-07-20 18:57:26.264 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.265 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CCCCC1
+2025-07-20 18:57:26.268 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CCc2nnnn2CC1
+2025-07-20 18:57:26.270 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.271 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CCc2nnnn2CC1
+2025-07-20 18:57:26.274 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc(N2CCNCC2)cc1
+2025-07-20 18:57:26.279 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.279 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc(N2CCNCC2)cc1
+2025-07-20 18:57:26.283 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc2sc(SN3CCOCC3)nc2c1
+2025-07-20 18:57:26.288 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.289 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc2sc(SN3CCOCC3)nc2c1
+2025-07-20 18:57:26.292 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1cncc(C2=NCCC2)c1
+2025-07-20 18:57:26.295 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.296 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1cncc(C2=NCCC2)c1
+2025-07-20 18:57:26.299 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CN1
+2025-07-20 18:57:26.300 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.300 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CN1
+2025-07-20 18:57:26.303 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CN1c1nc(N2CC2)nc(N2CC2)n1
+2025-07-20 18:57:26.309 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.310 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CN1c1nc(N2CC2)nc(N2CC2)n1
+2025-07-20 18:57:26.313 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc2c(c1)Sc1ccccc1N2CC1CN2CCC1CC2
+2025-07-20 18:57:26.334 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.336 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc2c(c1)Sc1ccccc1N2CC1CN2CCC1CC2
+2025-07-20 18:57:26.339 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CNCCN1
+2025-07-20 18:57:26.340 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.341 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CNCCN1
+2025-07-20 18:57:26.344 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CNCCNC1
+2025-07-20 18:57:26.345 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.346 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CNCCNC1
+2025-07-20 18:57:26.349 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CO1
+2025-07-20 18:57:26.349 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.350 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CO1
+2025-07-20 18:57:26.353 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1COC(OCC2CO2)C(OCC2CO2)O1
+2025-07-20 18:57:26.362 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.363 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1COC(OCC2CO2)C(OCC2CO2)O1
+2025-07-20 18:57:26.366 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1COCCN1
+2025-07-20 18:57:26.367 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.368 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1COCCN1
+2025-07-20 18:57:26.371 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1COCCOCCOCCO1
+2025-07-20 18:57:26.374 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.374 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1COCCOCCOCCO1
+2025-07-20 18:57:26.377 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1COCCOCCOCCOCCO1
+2025-07-20 18:57:26.384 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.385 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1COCCOCCOCCOCCO1
+2025-07-20 18:57:26.388 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1COCCOCCOCCOCCOCCO1
+2025-07-20 18:57:26.393 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.394 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1COCCOCCOCCOCCOCCO1
+2025-07-20 18:57:26.397 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1COCO1
+2025-07-20 18:57:26.397 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.398 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1COCO1
+2025-07-20 18:57:26.401 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CS1
+2025-07-20 18:57:26.402 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.402 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CS1
+2025-07-20 18:57:26.405 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C1CSCCO1
+2025-07-20 18:57:26.406 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.406 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C1CSCCO1
+2025-07-20 18:57:26.409 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1cc2c(cc1C1CO1)O2
+2025-07-20 18:57:26.411 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.411 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1cc2c(cc1C1CO1)O2
+2025-07-20 18:57:26.414 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1cc(CC2CO2)cc(CC2CO2)c1
+2025-07-20 18:57:26.421 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.422 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1cc(CC2CO2)cc(CC2CO2)c1
+2025-07-20 18:57:26.425 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1cc(OCC2CO2)cc(OCC2CO2)c1
+2025-07-20 18:57:26.431 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.431 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1cc(OCC2CO2)cc(OCC2CO2)c1
+2025-07-20 18:57:26.435 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: c1ccc2c(c1)OCO2
+2025-07-20 18:57:26.437 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.438 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for c1ccc2c(c1)OCO2
+2025-07-20 18:57:26.440 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CBr
+2025-07-20 18:57:26.441 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.441 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CBr
+2025-07-20 18:57:26.444 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC#N
+2025-07-20 18:57:26.444 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.444 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC#N
+2025-07-20 18:57:26.447 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C#N
+2025-07-20 18:57:26.448 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.448 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C#N
+2025-07-20 18:57:26.451 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C(=O)Nc1ccc(Cl)c(Cl)c1
+2025-07-20 18:57:26.455 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.455 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C(=O)Nc1ccc(Cl)c(Cl)c1
+2025-07-20 18:57:26.458 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C(=O)OC[Si]12OCCN(CCO1)CCO2
+2025-07-20 18:57:26.474 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.476 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C(=O)OC[Si]12OCCN(CCO1)CCO2
+2025-07-20 18:57:26.478 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC(=O)C(=C)C
+2025-07-20 18:57:26.481 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.481 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC(=O)C(=C)C
+2025-07-20 18:57:26.484 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C(=O)OCC1CO1
+2025-07-20 18:57:26.487 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.487 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C(=O)OCC1CO1
+2025-07-20 18:57:26.490 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C(=O)OCCCl
+2025-07-20 18:57:26.491 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.492 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C(=O)OCCCl
+2025-07-20 18:57:26.495 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C(C)=O
+2025-07-20 18:57:26.496 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.496 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C(C)=O
+2025-07-20 18:57:26.499 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C(OC(C)=O)OC(C)=O
+2025-07-20 18:57:26.503 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.504 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C(OC(C)=O)OC(C)=O
+2025-07-20 18:57:26.507 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)c1ccccc1
+2025-07-20 18:57:26.509 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.510 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)c1ccccc1
+2025-07-20 18:57:26.512 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C1CC=C(C)C(O)C1
+2025-07-20 18:57:26.518 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.519 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C1CC=C(C)C(O)C1
+2025-07-20 18:57:26.522 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)C1CC=C(C)CC1
+2025-07-20 18:57:26.525 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.526 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)C1CC=C(C)CC1
+2025-07-20 18:57:26.528 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)CC#N
+2025-07-20 18:57:26.531 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.532 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)CC#N
+2025-07-20 18:57:26.535 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(C)OC(C)=O
+2025-07-20 18:57:26.537 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.537 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(C)OC(C)=O
+2025-07-20 18:57:26.540 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=CC(=O)O)C(=O)O
+2025-07-20 18:57:26.541 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.542 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=CC(=O)O)C(=O)O
+2025-07-20 18:57:26.544 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)C(C)=O
+2025-07-20 18:57:26.545 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.546 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)C(C)=O
+2025-07-20 18:57:26.549 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(C)=O
+2025-07-20 18:57:26.550 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.550 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(C)=O
+2025-07-20 18:57:26.553 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)C=O
+2025-07-20 18:57:26.554 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.554 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)C=O
+2025-07-20 18:57:26.557 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)C1=C(O)C2C3c4c[nH]c5cccc(c45)CC3C(C)(C)N2C1=O
+2025-07-20 18:57:26.584 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.586 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)C1=C(O)C2C3c4c[nH]c5cccc(c45)CC3C(C)(C)N2C1=O
+2025-07-20 18:57:26.589 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)c1cccc2ccccc12
+2025-07-20 18:57:26.592 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.593 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)c1cccc2ccccc12
+2025-07-20 18:57:26.596 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)c1ccc(C)cc1
+2025-07-20 18:57:26.598 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.598 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)c1ccc(C)cc1
+2025-07-20 18:57:26.601 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)c1ccc(C(O)C(CO)NC(=O)C(Cl)Cl)cc1
+2025-07-20 18:57:26.616 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.616 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)c1ccc(C(O)C(CO)NC(=O)C(Cl)Cl)cc1
+2025-07-20 18:57:26.620 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)c1cccc([N+](=O)[O-])c1
+2025-07-20 18:57:26.622 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.623 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)c1cccc([N+](=O)[O-])c1
+2025-07-20 18:57:26.626 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)c1cccc(N)c1
+2025-07-20 18:57:26.628 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.644 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)c1cccc(N)c1
+2025-07-20 18:57:26.655 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)c1ccccc1
+2025-07-20 18:57:26.662 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.664 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)c1ccccc1
+2025-07-20 18:57:26.705 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)c1ccccc1Cl
+2025-07-20 18:57:26.721 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.734 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)c1ccccc1Cl
+2025-07-20 18:57:26.744 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)c1ccc2c(c1)C(=O)C1(CC1)O2
+2025-07-20 18:57:26.749 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.750 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)c1ccc2c(c1)C(=O)C1(CC1)O2
+2025-07-20 18:57:26.754 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)C1OC1(C)C
+2025-07-20 18:57:26.759 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.768 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)C1OC1(C)C
+2025-07-20 18:57:26.774 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=O)NC(C)(C)CC(C)=O
+2025-07-20 18:57:26.778 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.779 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=O)NC(C)(C)CC(C)=O
+2025-07-20 18:57:26.782 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CC(C)(C)O
+2025-07-20 18:57:26.785 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.786 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CC(C)(C)O
+2025-07-20 18:57:26.789 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CC(c1ccc([N+](=O)[O-])cc1)c1c(O)c2ccccc2oc1=O
+2025-07-20 18:57:26.807 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.808 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CC(c1ccc([N+](=O)[O-])cc1)c1c(O)c2ccccc2oc1=O
+2025-07-20 18:57:26.811 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CC(c1ccc(Cl)cc1)c1c(O)c2ccccc2oc1=O
+2025-07-20 18:57:26.826 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.827 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CC(c1ccc(Cl)cc1)c1c(O)c2ccccc2oc1=O
+2025-07-20 18:57:26.830 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CCC(=O)O
+2025-07-20 18:57:26.832 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.832 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CCC(=O)O
+2025-07-20 18:57:26.836 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CCc1ccc(O)cc1
+2025-07-20 18:57:26.840 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.841 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CCc1ccc(O)cc1
+2025-07-20 18:57:26.844 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CCc1ccccc1
+2025-07-20 18:57:26.847 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.847 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CCc1ccccc1
+2025-07-20 18:57:26.851 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CCl
+2025-07-20 18:57:26.852 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.852 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CCl
+2025-07-20 18:57:26.855 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CNC(C)(C)Cc1ccc(Cl)cc1
+2025-07-20 18:57:26.863 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.864 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CNC(C)(C)Cc1ccc(Cl)cc1
+2025-07-20 18:57:26.867 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CO
+2025-07-20 18:57:26.868 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.868 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CO
+2025-07-20 18:57:26.871 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)N1CCN(c2ccc(OCC3COC(Cn4ccnc4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1
+2025-07-20 18:57:26.919 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.921 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)N1CCN(c2ccc(OCC3COC(Cn4ccnc4)(c4ccc(Cl)cc4Cl)O3)cc2)CC1
+2025-07-20 18:57:26.924 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)N1CCOCC1
+2025-07-20 18:57:26.925 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.926 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)N1CCOCC1
+2025-07-20 18:57:26.929 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)NC(=O)c1ccccc1O
+2025-07-20 18:57:26.932 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.932 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)NC(=O)c1ccccc1O
+2025-07-20 18:57:26.935 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Nc1ccc(C)c(NS(=O)(=O)C(F)(F)F)c1
+2025-07-20 18:57:26.945 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.945 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Nc1ccc(C)c(NS(=O)(=O)C(F)(F)F)c1
+2025-07-20 18:57:26.948 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Nc1ccc(C(=O)CCl)cc1
+2025-07-20 18:57:26.952 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.953 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Nc1ccc(C(=O)CCl)cc1
+2025-07-20 18:57:26.956 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Nc1ccc(-c2ccc(N)cc2)cc1
+2025-07-20 18:57:26.963 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.963 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Nc1ccc(-c2ccc(N)cc2)cc1
+2025-07-20 18:57:26.967 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Nc1ccc(O)cc1
+2025-07-20 18:57:26.969 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.970 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Nc1ccc(O)cc1
+2025-07-20 18:57:26.973 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Nc1ccccc1
+2025-07-20 18:57:26.975 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.975 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Nc1ccccc1
+2025-07-20 18:57:26.978 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Nc1ccncc1
+2025-07-20 18:57:26.980 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.981 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Nc1ccncc1
+2025-07-20 18:57:26.984 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)NNC(=O)c1ccccn1
+2025-07-20 18:57:26.987 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:26.987 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)NNC(=O)c1ccccn1
+2025-07-20 18:57:26.990 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=C)CCCC(C)(C)OC(C)=O
+2025-07-20 18:57:27.001 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.002 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=C)CCCC(C)(C)OC(C)=O
+2025-07-20 18:57:27.005 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OC(c1ccccc1)C(Cl)(Cl)Cl
+2025-07-20 18:57:27.009 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.009 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OC(c1ccccc1)C(Cl)(Cl)Cl
+2025-07-20 18:57:27.012 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C(Cl)C(OC(C)=O)OC(C)=O
+2025-07-20 18:57:27.015 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.015 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C(Cl)C(OC(C)=O)OC(C)=O
+2025-07-20 18:57:27.019 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OC(OC(C)=O)C(Cl)CCl
+2025-07-20 18:57:27.022 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.022 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OC(OC(C)=O)C(Cl)CCl
+2025-07-20 18:57:27.025 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(OC(C)=O)OC(C)=O
+2025-07-20 18:57:27.027 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.028 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(OC(C)=O)OC(C)=O
+2025-07-20 18:57:27.030 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=COC(C)=O
+2025-07-20 18:57:27.032 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.032 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=COC(C)=O
+2025-07-20 18:57:27.035 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Oc1c(C(C)(C)C)cc([N+](=O)[O-])c(C)c1[N+](=O)[O-]
+2025-07-20 18:57:27.043 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.044 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Oc1c(C(C)(C)C)cc([N+](=O)[O-])c(C)c1[N+](=O)[O-]
+2025-07-20 18:57:27.046 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Oc1ccccc1C(N)=O
+2025-07-20 18:57:27.050 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.051 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Oc1ccccc1C(N)=O
+2025-07-20 18:57:27.054 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)N(C(C)=O)c3ccccc32)cc1
+2025-07-20 18:57:27.085 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.086 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)C(=O)N(C(C)=O)c3ccccc32)cc1
+2025-07-20 18:57:27.089 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)Oc3ccccc3NC2=O)cc1
+2025-07-20 18:57:27.115 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.116 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Oc1ccc(C2(c3ccc(OC(C)=O)cc3)Oc3ccccc3NC2=O)cc1
+2025-07-20 18:57:27.119 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Oc1ccc(Oc2c(I)cc(C(=O)O)cc2I)cc1I
+2025-07-20 18:57:27.128 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.129 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Oc1ccc(Oc2c(I)cc(C(=O)O)cc2I)cc1I
+2025-07-20 18:57:27.132 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Oc1ccccc1
+2025-07-20 18:57:27.134 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.134 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Oc1ccccc1
+2025-07-20 18:57:27.137 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OC1C(O)C2OC3C=C(C)C(=O)C(O)C3(CO)C1(C)C21CO1
+2025-07-20 18:57:27.159 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.161 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OC1C(O)C2OC3C=C(C)C(=O)C(O)C3(CO)C1(C)C21CO1
+2025-07-20 18:57:27.164 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OC1CCCCC1
+2025-07-20 18:57:27.167 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.168 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OC1CCCCC1
+2025-07-20 18:57:27.171 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCC(COC(C)=O)OC(C)=O
+2025-07-20 18:57:27.176 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.177 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCC(COC(C)=O)OC(C)=O
+2025-07-20 18:57:27.179 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCC=C(C)C
+2025-07-20 18:57:27.182 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.182 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCC=C(C)C
+2025-07-20 18:57:27.186 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCC1=C(C(=O)O)N2C(=O)C(NC(=O)CSc3ccncc3)C2SC1
+2025-07-20 18:57:27.204 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.205 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCC1=C(C(=O)O)N2C(=O)C(NC(=O)CSc3ccncc3)C2SC1
+2025-07-20 18:57:27.208 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCc1ccc2c(c1)OCO2
+2025-07-20 18:57:27.211 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.212 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCc1ccc2c(c1)OCO2
+2025-07-20 18:57:27.215 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCc1ccccc1
+2025-07-20 18:57:27.218 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.218 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCc1ccccc1
+2025-07-20 18:57:27.221 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCCc1ccccc1
+2025-07-20 18:57:27.225 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.225 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCCc1ccccc1
+2025-07-20 18:57:27.228 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCCC1=CCC2CC1C2(C)C
+2025-07-20 18:57:27.236 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.237 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCCC1=CCC2CC1C2(C)C
+2025-07-20 18:57:27.240 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCCC1CCCCC1
+2025-07-20 18:57:27.246 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.247 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCCC1CCCCC1
+2025-07-20 18:57:27.250 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCCO
+2025-07-20 18:57:27.252 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.252 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCCO
+2025-07-20 18:57:27.255 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCCOCCOCCOC(C)=O
+2025-07-20 18:57:27.263 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.264 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCCOCCOCCOC(C)=O
+2025-07-20 18:57:27.267 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OO
+2025-07-20 18:57:27.268 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.268 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OO
+2025-07-20 18:57:27.271 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=S)Nc1ccccc1
+2025-07-20 18:57:27.273 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.274 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=S)Nc1ccccc1
+2025-07-20 18:57:27.277 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(Br)CBr
+2025-07-20 18:57:27.277 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.277 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(Br)CBr
+2025-07-20 18:57:27.280 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C(c1ccc(Cl)cc1)c1ccc(Cl)cc1)[N+](=O)[O-]
+2025-07-20 18:57:27.288 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.289 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C(c1ccc(Cl)cc1)c1ccc(Cl)cc1)[N+](=O)[O-]
+2025-07-20 18:57:27.292 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C(=O)O)c1cccc(C(=O)c2ccccc2)c1
+2025-07-20 18:57:27.298 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.299 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C(=O)O)c1cccc(C(=O)c2ccccc2)c1
+2025-07-20 18:57:27.302 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C(=O)O)c1ccc(N2CC=CC2)c(Cl)c1
+2025-07-20 18:57:27.308 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.309 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C(=O)O)c1ccc(N2CC=CC2)c(Cl)c1
+2025-07-20 18:57:27.311 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C(=O)O)c1ccc(-c2cn3ccccc3n2)cc1
+2025-07-20 18:57:27.321 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.322 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C(=O)O)c1ccc(-c2cn3ccccc3n2)cc1
+2025-07-20 18:57:27.325 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C(=O)O)c1ccc(N2Cc3ccccc3C2=O)cc1
+2025-07-20 18:57:27.334 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.335 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C(=O)O)c1ccc(N2Cc3ccccc3C2=O)cc1
+2025-07-20 18:57:27.338 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C(=O)O)c1ccc(C(=O)c2ccccc2)s1
+2025-07-20 18:57:27.345 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.346 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C(=O)O)c1ccc(C(=O)c2ccccc2)s1
+2025-07-20 18:57:27.349 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C(=O)c1cccnc1)c1cccnc1
+2025-07-20 18:57:27.357 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.357 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C(=O)c1cccnc1)c1cccnc1
+2025-07-20 18:57:27.360 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)C(=O)O
+2025-07-20 18:57:27.362 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.362 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)C(=O)O
+2025-07-20 18:57:27.364 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)C(O)C(Oc1ccc(Cl)cc1)n1cncn1
+2025-07-20 18:57:27.378 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.378 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)C(O)C(Oc1ccc(Cl)cc1)n1cncn1
+2025-07-20 18:57:27.383 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)c1cc([N+](=O)[O-])cc(C(C)(C)C)c1O
+2025-07-20 18:57:27.395 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.396 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)c1cc([N+](=O)[O-])cc(C(C)(C)C)c1O
+2025-07-20 18:57:27.399 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)c1cc([N+](=O)[O-])cc([N+](=O)[O-])c1O
+2025-07-20 18:57:27.404 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.405 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)c1cc([N+](=O)[O-])cc([N+](=O)[O-])c1O
+2025-07-20 18:57:27.408 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)c1ccc(C(=O)O)cc1
+2025-07-20 18:57:27.411 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.411 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)c1ccc(C(=O)O)cc1
+2025-07-20 18:57:27.414 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)c1ccc(C(O)CCCN2CCC(C(O)(c3ccccc3)c3ccccc3)CC2)cc1
+2025-07-20 18:57:27.494 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.496 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)c1ccc(C(O)CCCN2CCC(C(O)(c3ccccc3)c3ccccc3)CC2)cc1
+2025-07-20 18:57:27.499 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)c1ccc(O)cc1
+2025-07-20 18:57:27.502 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.502 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)c1ccc(O)cc1
+2025-07-20 18:57:27.505 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)c1ccc(C(=O)OCC(Cl)(Cl)Cl)o1
+2025-07-20 18:57:27.510 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.510 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)c1ccc(C(=O)OCC(Cl)(Cl)Cl)o1
+2025-07-20 18:57:27.513 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C#CCOS(=O)OC1CCCCC1Oc1ccc(C(C)(C)C)cc1
+2025-07-20 18:57:27.524 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.525 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C#CCOS(=O)OC1CCCCC1Oc1ccc(C(C)(C)C)cc1
+2025-07-20 18:57:27.528 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)c1ccc(OCC(O)COc2ccc(C(=O)O)cc2)cc1
+2025-07-20 18:57:27.544 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.544 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)c1ccc(OCC(O)COc2ccc(C(=O)O)cc2)cc1
+2025-07-20 18:57:27.547 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)c1nnc(NS(=O)(=O)c2ccccc2)s1
+2025-07-20 18:57:27.554 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.555 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)c1nnc(NS(=O)(=O)c2ccccc2)s1
+2025-07-20 18:57:27.558 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)CC1(C)CO1
+2025-07-20 18:57:27.562 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.562 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)CC1(C)CO1
+2025-07-20 18:57:27.565 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)N
+2025-07-20 18:57:27.566 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.566 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)N
+2025-07-20 18:57:27.569 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)NCC(O)c1ccc(O)c(CO)c1
+2025-07-20 18:57:27.576 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.576 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)NCC(O)c1ccc(O)c(CO)c1
+2025-07-20 18:57:27.579 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)NCC(O)COc1ccccc1C1CCCC1
+2025-07-20 18:57:27.594 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.595 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)NCC(O)COc1ccccc1C1CCCC1
+2025-07-20 18:57:27.598 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)OOC(=O)c1ccccc1
+2025-07-20 18:57:27.604 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.604 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)OOC(=O)c1ccccc1
+2025-07-20 18:57:27.607 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(C)S
+2025-07-20 18:57:27.608 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.608 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(C)S
+2025-07-20 18:57:27.611 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(c1ccc(OCC2CO2)cc1)c1ccc(OCC2CO2)cc1
+2025-07-20 18:57:27.632 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.633 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(c1ccc(OCC2CO2)cc1)c1ccc(OCC2CO2)cc1
+2025-07-20 18:57:27.636 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(=O)OCC(C)(C)COC(=O)C=C
+2025-07-20 18:57:27.644 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.644 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(=O)OCC(C)(C)COC(=O)C=C
+2025-07-20 18:57:27.647 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(COC(N)=O)COC(N)=O
+2025-07-20 18:57:27.651 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.652 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(COC(N)=O)COC(N)=O
+2025-07-20 18:57:27.655 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC1(N)CCC(C(C)(C)N)CC1
+2025-07-20 18:57:27.663 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.664 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC1(N)CCC(C(C)(C)N)CC1
+2025-07-20 18:57:27.667 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(N)Cc1ccc(Cl)cc1
+2025-07-20 18:57:27.672 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.672 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(N)Cc1ccc(Cl)cc1
+2025-07-20 18:57:27.675 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C#CC(C)(C)O
+2025-07-20 18:57:27.676 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.677 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C#CC(C)(C)O
+2025-07-20 18:57:27.679 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC#CC(C)(C)O
+2025-07-20 18:57:27.684 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.684 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC#CC(C)(C)O
+2025-07-20 18:57:27.687 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(O)c1ccccc1
+2025-07-20 18:57:27.689 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.689 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(O)c1ccccc1
+2025-07-20 18:57:27.692 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(O)Cc1ccccc1
+2025-07-20 18:57:27.696 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.697 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(O)Cc1ccccc1
+2025-07-20 18:57:27.700 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(Oc1ccc(CCNC(=O)c2ccc(Cl)cc2)cc1)C(=O)O
+2025-07-20 18:57:27.719 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.720 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(Oc1ccc(CCNC(=O)c2ccc(Cl)cc2)cc1)C(=O)O
+2025-07-20 18:57:27.723 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(Oc1ccc(Cl)cc1)C(=O)O
+2025-07-20 18:57:27.727 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.727 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(Oc1ccc(Cl)cc1)C(=O)O
+2025-07-20 18:57:27.730 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)(OO)c1ccccc1
+2025-07-20 18:57:27.732 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.732 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)(OO)c1ccccc1
+2025-07-20 18:57:27.735 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)C=C(C)C
+2025-07-20 18:57:27.737 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.737 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)C=C(C)C
+2025-07-20 18:57:27.740 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)=CC(=O)O
+2025-07-20 18:57:27.741 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.742 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)=CC(=O)O
+2025-07-20 18:57:27.744 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)=CC1C(=O)OC(=O)C1(C=C(C)C)C=C(C)C
+2025-07-20 18:57:27.761 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.762 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)=CC1C(=O)OC(=O)C1(C=C(C)C)C=C(C)C
+2025-07-20 18:57:27.765 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCC1=C(C)C(OC(=O)C2C(C=C(C)C)C2(C)C)CC1=O
+2025-07-20 18:57:27.788 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.789 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCC1=C(C)C(OC(=O)C2C(C=C(C)C)C2(C)C)CC1=O
+2025-07-20 18:57:27.792 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC=CCC1=C(C)C(OC(=O)C2C(C=C(C)C)C2(C)C)CC1=O
+2025-07-20 18:57:27.827 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.828 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC=CCC1=C(C)C(OC(=O)C2C(C=C(C)C)C2(C)C)CC1=O
+2025-07-20 18:57:27.831 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)=CCC(CCN1CCOCC1)(C(N)=O)c1cccc2ccccc12
+2025-07-20 18:57:27.864 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.866 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)=CCC(CCN1CCOCC1)(C(N)=O)c1cccc2ccccc12
+2025-07-20 18:57:27.869 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)=CCC1C(=O)N(c2ccccc2)N(c2ccccc2)C1=O
+2025-07-20 18:57:27.885 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.886 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)=CCC1C(=O)N(c2ccccc2)N(c2ccccc2)C1=O
+2025-07-20 18:57:27.889 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(C)(O)CCC=C(C)C
+2025-07-20 18:57:27.894 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.894 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(C)(O)CCC=C(C)C
+2025-07-20 18:57:27.897 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)=O
+2025-07-20 18:57:27.898 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.898 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)=O
+2025-07-20 18:57:27.901 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)C(=O)N(C)C(=O)Oc1cccc(C(C)C)c1
+2025-07-20 18:57:27.917 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.918 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)C(=O)N(C)C(=O)Oc1cccc(C(C)C)c1
+2025-07-20 18:57:27.921 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: Cc1ccc(OC(=O)C(C)C)cc1
+2025-07-20 18:57:27.926 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.926 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for Cc1ccc(OC(=O)C(C)C)cc1
+2025-07-20 18:57:27.929 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)C(=O)OCc1ccccc1
+2025-07-20 18:57:27.935 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.935 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)C(=O)OCc1ccccc1
+2025-07-20 18:57:27.938 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)C(Br)C(=O)NC(N)=O
+2025-07-20 18:57:27.941 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.942 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)C(Br)C(=O)NC(N)=O
+2025-07-20 18:57:27.944 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)C(C(=O)OC(C#N)c1cccc(Oc2ccccc2)c1)c1ccc(OC(F)F)cc1
+2025-07-20 18:57:27.980 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.981 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)C(C(=O)OC(C#N)c1cccc(Oc2ccccc2)c1)c1ccc(OC(F)F)cc1
+2025-07-20 18:57:27.984 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)C(C)C
+2025-07-20 18:57:27.985 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:27.985 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)C(C)C
+2025-07-20 18:57:27.988 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C1CCC(O)CC1=CC=C1CCCC2(C)C1CCC2C(C)C=CC(C)C(C)C
+2025-07-20 18:57:28.060 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.061 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C1CCC(O)CC1=CC=C1CCCC2(C)C1CCC2C(C)C=CC(C)C(C)C
+2025-07-20 18:57:28.064 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC1=CCC(O)(C(C)C)CC1
+2025-07-20 18:57:28.069 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.070 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC1=CCC(O)(C(C)C)CC1
+2025-07-20 18:57:28.073 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC1=C(C(C)C)CC=CC1
+2025-07-20 18:57:28.077 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.078 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC1=C(C(C)C)CC=CC1
+2025-07-20 18:57:28.080 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1s[nH]c2nc(C(C)(C)C)nc(=O)c1-2
+2025-07-20 18:57:28.086 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.086 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1s[nH]c2nc(C(C)(C)C)nc(=O)c1-2
+2025-07-20 18:57:28.089 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: Cc1ccc(C(C)C)cc1O
+2025-07-20 18:57:28.093 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.094 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for Cc1ccc(C(C)C)cc1O
+2025-07-20 18:57:28.096 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1cccc(OC(=O)N(C)N=O)c1
+2025-07-20 18:57:28.104 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.104 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1cccc(OC(=O)N(C)N=O)c1
+2025-07-20 18:57:28.107 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)Oc1cc(C(C)C)c(OCCN(C)C)cc1C
+2025-07-20 18:57:28.128 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.129 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)Oc1cc(C(C)C)c(OCCN(C)C)cc1C
+2025-07-20 18:57:28.136 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1ccc(C#N)cc1
+2025-07-20 18:57:28.140 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.141 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1ccc(C#N)cc1
+2025-07-20 18:57:28.144 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1ccc(C=O)cc1
+2025-07-20 18:57:28.147 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.148 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1ccc(C=O)cc1
+2025-07-20 18:57:28.151 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1ccc(CO)cc1
+2025-07-20 18:57:28.156 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.156 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1ccc(CO)cc1
+2025-07-20 18:57:28.159 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1ccc(NC(=O)N(C)C)cc1
+2025-07-20 18:57:28.168 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.168 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1ccc(NC(=O)N(C)C)cc1
+2025-07-20 18:57:28.171 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1cccc(C(C)C)c1N
+2025-07-20 18:57:28.179 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.179 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1cccc(C(C)C)c1N
+2025-07-20 18:57:28.182 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1cccc(OC(=O)N(C)C)c1
+2025-07-20 18:57:28.190 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.190 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1cccc(OC(=O)N(C)C)c1
+2025-07-20 18:57:28.193 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1ccccc1
+2025-07-20 18:57:28.196 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.196 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1ccccc1
+2025-07-20 18:57:28.199 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)c1ccccc1N
+2025-07-20 18:57:28.203 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.203 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)c1ccccc1N
+2025-07-20 18:57:28.206 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC1=CCC(C(C)C)=CC1
+2025-07-20 18:57:28.211 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.211 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC1=CCC(C(C)C)=CC1
+2025-07-20 18:57:28.214 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC1=CC(=O)C(C(C)C)CC1
+2025-07-20 18:57:28.220 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.220 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC1=CC(=O)C(C(C)C)CC1
+2025-07-20 18:57:28.223 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC1CCC(C(C)C)C(=O)C1
+2025-07-20 18:57:28.229 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.229 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC1CCC(C(C)C)C(=O)C1
+2025-07-20 18:57:28.232 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC1CCC(C(C)C)C(O)C1
+2025-07-20 18:57:28.237 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.238 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC1CCC(C(C)C)C(O)C1
+2025-07-20 18:57:28.241 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CC(=O)CC(C)C
+2025-07-20 18:57:28.245 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.246 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CC(=O)CC(C)C
+2025-07-20 18:57:28.249 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCC12CC(OC(=O)CC(C)C)C(C)=CC1OC1C(O)C(OC(C)=O)C2(C)C12CO2
+2025-07-20 18:57:28.305 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.306 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCC12CC(OC(=O)CC(C)C)C(C)=CC1OC1C(O)C(OC(C)=O)C2(C)C12CO2
+2025-07-20 18:57:28.309 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC(=O)CC(C)C
+2025-07-20 18:57:28.312 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.312 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC(=O)CC(C)C
+2025-07-20 18:57:28.315 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CC(C)C
+2025-07-20 18:57:28.317 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.317 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CC(C)C
+2025-07-20 18:57:28.320 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CC(C)CC(O)CC(C)C
+2025-07-20 18:57:28.330 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.330 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CC(C)CC(O)CC(C)C
+2025-07-20 18:57:28.334 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=COCC(C)CCCC(C)CC(C)C
+2025-07-20 18:57:28.352 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.353 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=COCC(C)CCCC(C)CC(C)C
+2025-07-20 18:57:28.356 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CC(C)O
+2025-07-20 18:57:28.358 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.359 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CC(C)O
+2025-07-20 18:57:28.361 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CC(C)OC(=O)C=CC(=O)OC(C)CC(C)C
+2025-07-20 18:57:28.386 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.386 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CC(C)OC(=O)C=CC(=O)OC(C)CC(C)C
+2025-07-20 18:57:28.389 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CC(CC(C)C)OCCOCCO
+2025-07-20 18:57:28.405 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.406 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CC(CC(C)C)OCCOCCO
+2025-07-20 18:57:28.409 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)NC(CC(C)C)C(=O)NC(CC(C)C)C(=O)NC(C=O)CCCNC(=N)N
+2025-07-20 18:57:28.457 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.458 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)NC(CC(C)C)C(=O)NC(CC(C)C)C(=O)NC(C=O)CCCNC(=N)N
+2025-07-20 18:57:28.461 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CC(O)CC(C)C
+2025-07-20 18:57:28.466 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.467 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CC(O)CC(C)C
+2025-07-20 18:57:28.470 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CC=O
+2025-07-20 18:57:28.471 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.472 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CC=O
+2025-07-20 18:57:28.474 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)Cc1ccc(C(C)C(=O)OCc2ccccn2)cc1
+2025-07-20 18:57:28.490 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.490 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)Cc1ccc(C(C)C(=O)OCc2ccccn2)cc1
+2025-07-20 18:57:28.493 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)CCC(C)C
+2025-07-20 18:57:28.496 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.496 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)CCC(C)C
+2025-07-20 18:57:28.499 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCC(=O)O
+2025-07-20 18:57:28.501 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.501 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCC(=O)O
+2025-07-20 18:57:28.504 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCC=O
+2025-07-20 18:57:28.506 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.506 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCC=O
+2025-07-20 18:57:28.509 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=C1CCC(O)CC1=CC=C1CCCC2(C)C1CCC2C(C)CCCC(C)C
+2025-07-20 18:57:28.572 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.574 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=C1CCC(O)CC1=CC=C1CCCC2(C)C1CCC2C(C)CCCC(C)C
+2025-07-20 18:57:28.577 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C#CCOC(=O)C=C(C)C=CCC(C)CCCC(C)C
+2025-07-20 18:57:28.679 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.680 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C#CCOC(=O)C=C(C)C=CCC(C)CCCC(C)C
+2025-07-20 18:57:28.683 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: Cc1c(C)c2c(c(C)c1OC(=O)C(C)(C)Oc1ccc(Cl)cc1)CCC(C)(CCCC(C)CCCC(C)CCCC(C)C)O2
+2025-07-20 18:57:28.835 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.837 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for Cc1c(C)c2c(c(C)c1OC(=O)C(C)(C)Oc1ccc(Cl)cc1)CCC(C)(CCCC(C)CCCC(C)CCCC(C)C)O2
+2025-07-20 18:57:28.840 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCCCCCO
+2025-07-20 18:57:28.846 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.847 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCCCCCO
+2025-07-20 18:57:28.850 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCCCCN(CCCCCC(C)C)CCCCCC(C)C
+2025-07-20 18:57:28.899 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.900 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCCCCN(CCCCCC(C)C)CCCCCC(C)C
+2025-07-20 18:57:28.903 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCCO
+2025-07-20 18:57:28.905 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.906 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCCO
+2025-07-20 18:57:28.908 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCO
+2025-07-20 18:57:28.910 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.910 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCO
+2025-07-20 18:57:28.913 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OCCC(C)C
+2025-07-20 18:57:28.916 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.916 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OCCC(C)C
+2025-07-20 18:57:28.919 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCOC(CO)CC(C)C
+2025-07-20 18:57:28.932 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.933 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCOC(CO)CC(C)C
+2025-07-20 18:57:28.936 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCON=O
+2025-07-20 18:57:28.938 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.939 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCON=O
+2025-07-20 18:57:28.942 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CCP(CCC(C)C)CCC(C)C
+2025-07-20 18:57:28.968 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.968 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CCP(CCC(C)C)CCC(C)C
+2025-07-20 18:57:28.971 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)CN
+2025-07-20 18:57:28.973 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.973 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)CN
+2025-07-20 18:57:28.975 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)Cn1nc(-c2ccccc2)c(-c2ccccc2)c1CC(=O)O
+2025-07-20 18:57:28.993 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:28.994 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)Cn1nc(-c2ccccc2)c(-c2ccccc2)c1CC(=O)O
+2025-07-20 18:57:28.997 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)COC(=O)C=CC(=O)OCC(C)C
+2025-07-20 18:57:29.008 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.009 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)COC(=O)C=CC(=O)OCC(C)C
+2025-07-20 18:57:29.011 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)COC(=O)c1ccccc1C(=O)OCC(C)C
+2025-07-20 18:57:29.031 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.031 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)COC(=O)c1ccccc1C(=O)OCC(C)C
+2025-07-20 18:57:29.035 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)COC(=O)c1ccccc1O
+2025-07-20 18:57:29.040 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.041 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)COC(=O)c1ccccc1O
+2025-07-20 18:57:29.043 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)COC(=O)CCc1ccco1
+2025-07-20 18:57:29.049 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.050 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)COC(=O)CCc1ccco1
+2025-07-20 18:57:29.053 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=COCC(C)C
+2025-07-20 18:57:29.055 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.056 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=COCC(C)C
+2025-07-20 18:57:29.059 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)COP(C)(=S)SCN1C(=O)c2ccccc2C1=O
+2025-07-20 18:57:29.079 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.080 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)COP(C)(=S)SCN1C(=O)c2ccccc2C1=O
+2025-07-20 18:57:29.084 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)N
+2025-07-20 18:57:29.085 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.086 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)N
+2025-07-20 18:57:29.090 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)[N+](=O)[O-]
+2025-07-20 18:57:29.091 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.091 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)[N+](=O)[O-]
+2025-07-20 18:57:29.094 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)N(C(=O)CCl)c1ccccc1
+2025-07-20 18:57:29.099 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.100 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)N(C(=O)CCl)c1ccccc1
+2025-07-20 18:57:29.103 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)N(C(=O)SCC(Cl)=C(Cl)Cl)C(C)C
+2025-07-20 18:57:29.110 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.110 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)N(C(=O)SCC(Cl)=C(Cl)Cl)C(C)C
+2025-07-20 18:57:29.113 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)N(CCC(C(N)=O)(c1ccccc1)c1ccccn1)C(C)C
+2025-07-20 18:57:29.147 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.148 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)N(CCC(C(N)=O)(c1ccccc1)c1ccccn1)C(C)C
+2025-07-20 18:57:29.151 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)N(CCO)C(C)C
+2025-07-20 18:57:29.155 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.156 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)N(CCO)C(C)C
+2025-07-20 18:57:29.159 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)N(N=O)C(C)C
+2025-07-20 18:57:29.161 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.162 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)N(N=O)C(C)C
+2025-07-20 18:57:29.164 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)N=c1cc2n(-c3ccc(Cl)cc3)c3ccccc3nc-2cc1Nc1ccc(Cl)cc1
+2025-07-20 18:57:29.205 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.207 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)N=c1cc2n(-c3ccc(Cl)cc3)c3ccccc3nc-2cc1Nc1ccc(Cl)cc1
+2025-07-20 18:57:29.210 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: Cc1[nH]c(=O)n(C(C)C)c(=O)c1Br
+2025-07-20 18:57:29.214 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.214 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for Cc1[nH]c(=O)n(C(C)C)c(=O)c1Br
+2025-07-20 18:57:29.217 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: Cc1cc(OC(=O)N(C)C)n(C(C)C)n1
+2025-07-20 18:57:29.227 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.227 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for Cc1cc(OC(=O)N(C)C)n(C(C)C)n1
+2025-07-20 18:57:29.230 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)Nc1ccc(Nc2ccccc2)cc1
+2025-07-20 18:57:29.241 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.242 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)Nc1ccc(Nc2ccccc2)cc1
+2025-07-20 18:57:29.245 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)Nc1nc(Cl)nc(NC(C)C)n1
+2025-07-20 18:57:29.250 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.251 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)Nc1nc(Cl)nc(NC(C)C)n1
+2025-07-20 18:57:29.254 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)NCC(O)c1ccc(O)c(O)c1
+2025-07-20 18:57:29.259 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.260 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)NCC(O)c1ccc(O)c(O)c1
+2025-07-20 18:57:29.262 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)NCC(O)c1ccc2ccccc2c1
+2025-07-20 18:57:29.273 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.274 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)NCC(O)c1ccc2ccccc2c1
+2025-07-20 18:57:29.277 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)NCC(O)COc1cccc2[nH]ccc12
+2025-07-20 18:57:29.288 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.288 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)NCC(O)COc1cccc2[nH]ccc12
+2025-07-20 18:57:29.291 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)NCC1CCc2cc(CO)c([N+](=O)[O-])cc2N1
+2025-07-20 18:57:29.300 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.301 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)NCC1CCc2cc(CO)c([N+](=O)[O-])cc2N1
+2025-07-20 18:57:29.304 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)NNC(=O)COc1ccc(Cl)cc1
+2025-07-20 18:57:29.311 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.312 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)NNC(=O)COc1ccc(Cl)cc1
+2025-07-20 18:57:29.314 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)NP(O)(=S)Oc1cc(Cl)c(Cl)cc1Cl
+2025-07-20 18:57:29.320 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.321 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)NP(O)(=S)Oc1cc(Cl)c(Cl)cc1Cl
+2025-07-20 18:57:29.324 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)O
+2025-07-20 18:57:29.324 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.324 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)O
+2025-07-20 18:57:29.327 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OC(=O)C=CC(=O)OC(C)C
+2025-07-20 18:57:29.333 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.334 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OC(=O)C=CC(=O)OC(C)C
+2025-07-20 18:57:29.336 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OC(=O)CCCCCCN
+2025-07-20 18:57:29.345 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.346 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OC(=O)CCCCCCN
+2025-07-20 18:57:29.349 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)ON(C(=O)OC(C)C)c1ccccc1
+2025-07-20 18:57:29.356 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.357 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)ON(C(=O)OC(C)C)c1ccccc1
+2025-07-20 18:57:29.360 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OC(=O)Nc1cccc(Cl)c1
+2025-07-20 18:57:29.366 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.366 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OC(=O)Nc1cccc(Cl)c1
+2025-07-20 18:57:29.369 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OC(=O)Nc1ccccc1
+2025-07-20 18:57:29.375 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.375 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OC(=O)Nc1ccccc1
+2025-07-20 18:57:29.378 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OC(C)C
+2025-07-20 18:57:29.379 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.380 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OC(C)C
+2025-07-20 18:57:29.383 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OC(C)C
+2025-07-20 18:57:29.385 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.385 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OC(C)C
+2025-07-20 18:57:29.388 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OC(=O)Cl
+2025-07-20 18:57:29.389 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.389 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OC(=O)Cl
+2025-07-20 18:57:29.392 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)Oc1cc(-n2nc(C(C)(C)C)oc2=O)c(Cl)cc1Cl
+2025-07-20 18:57:29.404 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.405 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)Oc1cc(-n2nc(C(C)(C)C)oc2=O)c(Cl)cc1Cl
+2025-07-20 18:57:29.408 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OCC1CO1
+2025-07-20 18:57:29.410 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.411 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OCC1CO1
+2025-07-20 18:57:29.414 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OP(=O)(OC(C)C)OP(=S)(CCl)OC(C)C
+2025-07-20 18:57:29.427 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.428 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OP(=O)(OC(C)C)OP(=S)(CCl)OC(C)C
+2025-07-20 18:57:29.431 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OP(=O)(OC(C)C)SCc1ccccc1
+2025-07-20 18:57:29.444 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.445 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OP(=O)(OC(C)C)SCc1ccccc1
+2025-07-20 18:57:29.448 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OP(=S)(CCl)Sc1ccc(Br)cc1
+2025-07-20 18:57:29.453 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.454 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OP(=S)(CCl)Sc1ccc(Br)cc1
+2025-07-20 18:57:29.457 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: Cc1ccc(SP(=S)(CCl)OC(C)C)cc1
+2025-07-20 18:57:29.463 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.463 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for Cc1ccc(SP(=S)(CCl)OC(C)C)cc1
+2025-07-20 18:57:29.466 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OP(=S)(CCl)Sc1ccc(F)cc1
+2025-07-20 18:57:29.472 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.473 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OP(=S)(CCl)Sc1ccc(F)cc1
+2025-07-20 18:57:29.476 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OP(=S)(OC(C)C)SCCNS(=O)(=O)c1ccccc1
+2025-07-20 18:57:29.505 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.506 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OP(=S)(OC(C)C)SCCNS(=O)(=O)c1ccccc1
+2025-07-20 18:57:29.509 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OP(C)(=O)OC(C)C
+2025-07-20 18:57:29.513 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.513 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OP(C)(=O)OC(C)C
+2025-07-20 18:57:29.516 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OP(C)(=S)Oc1cc(Cl)c(Br)cc1Cl
+2025-07-20 18:57:29.525 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.526 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OP(C)(=S)Oc1cc(Cl)c(Br)cc1Cl
+2025-07-20 18:57:29.529 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)OS(=O)(=O)OC(C)C
+2025-07-20 18:57:29.531 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.532 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)OS(=O)(=O)OC(C)C
+2025-07-20 18:57:29.535 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CC(C)=CCCC(C)(C)O
+2025-07-20 18:57:29.540 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.541 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CC(C)=CCCC(C)(C)O
+2025-07-20 18:57:29.544 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C=O)=Cc1ccccc1
+2025-07-20 18:57:29.546 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.547 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C=O)=Cc1ccccc1
+2025-07-20 18:57:29.550 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: C=CCOC(=O)CC(C)CC(C)(C)C
+2025-07-20 18:57:29.561 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.561 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for C=CCOC(=O)CC(C)CC(C)(C)C
+2025-07-20 18:57:29.564 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(=O)OC(C)CC(C)(C)OC(C)=O
+2025-07-20 18:57:29.571 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.572 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(=O)OC(C)CC(C)(C)OC(C)=O
+2025-07-20 18:57:29.575 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(CC=O)CC(C)(C)C
+2025-07-20 18:57:29.580 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.580 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(CC=O)CC(C)(C)C
+2025-07-20 18:57:29.583 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(CC=O)CC=O
+2025-07-20 18:57:29.586 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.586 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(CC=O)CC=O
+2025-07-20 18:57:29.589 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C=O)Cc1ccc(C(C)(C)C)cc1
+2025-07-20 18:57:29.594 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.595 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C=O)Cc1ccc(C(C)(C)C)cc1
+2025-07-20 18:57:29.598 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C=O)Cc1ccc(C(C)C)cc1
+2025-07-20 18:57:29.604 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.605 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C=O)Cc1ccc(C(C)C)cc1
+2025-07-20 18:57:29.608 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(Cc1ccccc1)NN
+2025-07-20 18:57:29.611 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.611 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(Cc1ccccc1)NN
+2025-07-20 18:57:29.614 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(CCC(=O)O)C1CCC2C3C(=O)CC4CC(=O)CCC4(C)C3CC(=O)C12C
+2025-07-20 18:57:29.656 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.658 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(CCC(=O)O)C1CCC2C3C(=O)CC4CC(=O)CCC4(C)C3CC(=O)C12C
+2025-07-20 18:57:29.661 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(CCC(=O)O)C1CCC2C3C(O)CC4CC(O)CCC4(C)C3CCC12C
+2025-07-20 18:57:29.691 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.693 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(CCC(=O)O)C1CCC2C3C(O)CC4CC(O)CCC4(C)C3CCC12C
+2025-07-20 18:57:29.696 | INFO     | modules.input_preprocessing:preprocess_smiles:12 - Preprocessing SMILES: CC(C)=CCCC(C)CC#N
+2025-07-20 18:57:29.704 | DEBUG    | modules.input_preprocessing:preprocess_smiles:23 - 3D embedding successful.
+2025-07-20 18:57:29.705 | DEBUG    | modules.input_preprocessing:preprocess_smiles:30 - ECFP and MACCS fingerprints generated for CC(C)=CCCC(C)CC#N

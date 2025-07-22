@@ -33,6 +33,7 @@ def convert_smiles_column(X: pd.Series) -> pd.DataFrame:
 
 
 def train_ld50_model():
+    mlflow.set_experiment("LD50_Experiment")
     with mlflow.start_run(run_name="LD50_Model_Training"):
         logger.info("Training LD50 regression model...")
         data = Tox(name='LD50_Zhu')
@@ -91,6 +92,7 @@ def train_ld50_model():
 
 
 def train_carcinogenicity_model():
+    mlflow.set_experiment("Carcinogenicity_Experiment")
     with mlflow.start_run(run_name="Carcinogenicity_Model_Training"):
         logger.info("Training Carcinogenicity classification model...")
         data = Tox(name='Carcinogens_Lagunin')
@@ -144,6 +146,7 @@ def train_carcinogenicity_model():
         logger.success("Carcinogenicity model saved to models/carcinogenicity_xgb_model.pkl")
 
 def train_general_tox_model():
+    mlflow.set_experiment("GeneralTox_Experiment")
     with mlflow.start_run(run_name="GeneralTox_Model_Training"):
         logger.info("Training General Toxicity classifier (Tox21)...")
         label_list = retrieve_label_name_list('Tox21')
