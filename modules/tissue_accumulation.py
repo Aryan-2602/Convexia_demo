@@ -30,6 +30,7 @@ def convert_smiles_column(X: pd.Series) -> pd.DataFrame:
 # ---- TRAINING FUNCTIONS ---- #
 
 def train_bbb_model():
+    mlflow.set_experiment("BBB_Experiment")
     with mlflow.start_run(run_name="BBB_Model_Training"):
         logger.info("Training BBB (Blood-Brain Barrier) model...")
         train = pd.read_csv("data/bbb_logbb/bbb_logbb_train.csv")
@@ -81,6 +82,7 @@ def train_bbb_model():
         logger.success("BBB model saved to models/bbb_xgb_model.pkl")
 
 def train_oct2_model():
+    mlflow.set_experiment("OCT2_Experiment")
     with mlflow.start_run(run_name="OCT2_Model_Training"):
         logger.info("Training OCT2 model (kidney accumulation)...")
         train = pd.read_csv("data/oct2/oct2_train.csv")
@@ -132,6 +134,7 @@ def train_oct2_model():
         logger.success("OCT2 model saved to models/oct2_xgb_model.pkl")
 
 def train_vd_model():
+    mlflow.set_experiment("VD_Experiment")
     with mlflow.start_run(run_name="VD_Model_Training"):
         logger.info("Training VD (Volume of Distribution) model...")
         train = pd.read_csv("data/vd/vd_train.csv")
