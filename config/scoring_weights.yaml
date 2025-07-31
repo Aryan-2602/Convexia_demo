@@ -1,0 +1,13 @@
+weights:
+  general_tox: 0.15
+  organ_tox_avg: 0.2
+  neurotox: 0.15
+  mito_tox: 0.1
+  morpho_tox: 0.1
+  accumulation_penalty: 0.1
+  immunotox: 0.1
+  structural_alert_penalty: 0.1
+  tox21_score: 0.2
+  ames_toxicity_score: 0.2
+  herg_toxicity_score: 100
+  metabolism_score: 0.2

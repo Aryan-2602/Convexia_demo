@@ -18,7 +18,8 @@ from modules import (
     scoring,
     tox21_transformer,
     ames_toxicity,
-    herg_toxicity
+    herg_toxicity,
+    metabolism
 )
 
 from rdkit import Chem
@@ -86,8 +87,12 @@ def run_toxicity_pipeline(smiles: str):
             # 12. hERG
             herg_score = herg_toxicity.predict_herg_toxicity(smiles)
             mlflow.log_metric("herg_score", herg_score)
+            
+            # 13. Metabolism
+            metabolism_score = metabolism.predict_metabolism(smiles)
+            mlflow.log_metric("metabolism_score",metabolism_score)
 
-            # 13. Explainability
+            # 14. Explainability
             confidence = explainability.compute_confidence()
             mlflow.log_metric("model_confidence", confidence)
 
@@ -105,7 +110,8 @@ def run_toxicity_pipeline(smiles: str):
                 "structural_alert_penalty": structural_alert_penalty,
                 "tox21_score": tox21_score,
                 "ames_toxicity_score": ames_score,
-                "herg_toxicity_score": herg_score
+                "herg_toxicity_score": herg_score,
+                "metabolism_score":metabolism_score
             }
 
             composite_score = scoring.compute_composite_score(values)
@@ -125,6 +131,8 @@ def run_toxicity_pipeline(smiles: str):
                 flags.append("ames model indicates toxicity")
             if herg_score < 0.001:
                 flags.append("herg model indicates heart risk")
+            if metabolism_score>0.4:
+                flags.append("metabolism score indicates a metabolism risk")
 
             mlflow.log_text("\n".join(flags), artifact_file="flags.txt")
 
@@ -142,6 +150,7 @@ def run_toxicity_pipeline(smiles: str):
                 "herg_toxicity_score": round(herg_score, 2),
                 "structural_alerts": alert_list,
                 "ld50": general["ld50"],
+                "metabolism_score":metabolism_score,
                 "model_confidence": confidence,
                 "flags": flags
             }

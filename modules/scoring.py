@@ -1,4 +1,17 @@
+import yaml
 from utils.logger import logger
+from pathlib import Path
+
+# Load weights from YAML file
+def load_weights():
+    weights_path = Path(__file__).resolve().parent.parent / "config" / "scoring_weights.yaml"
+    with open(weights_path, "r") as f:
+        config = yaml.safe_load(f)
+    return config["weights"]
+
+# Load weights once at module-level
+WEIGHTS = load_weights()
+
 
 def compute_composite_score(values: dict):
     logger.info("Computing composite toxicity score")
@@ -7,20 +20,11 @@ def compute_composite_score(values: dict):
     for key, value in values.items():
         logger.debug(f"[SCORING] {key} = {value} ({type(value)})")
 
-    score = (
-        0.15 * values["general_tox"] +
-        0.2 * values["organ_tox_avg"] +
-        0.15 * values["neurotox"] +
-        0.1 * values["mito_tox"] +
-        0.1 * values["morpho_tox"] +
-        0.1 * values["accumulation_penalty"] +
-        0.1 * values["immunotox"] +
-        0.1 * values["structural_alert_penalty"]+
-        0.2 * values["tox21_score"]+
-        0.2 * values["ames_toxicity_score"]+
-        100 * values['herg_toxicity_score']
-    )
-    
+    try:
+        score = sum(WEIGHTS[k] * values[k] for k in WEIGHTS)
+    except KeyError as e:
+        logger.error(f"Missing key in input values: {e}")
+        raise
 
     final_score = round(min(max(score, 0), 1), 2)
     logger.debug(f"Final composite score: {final_score}")
