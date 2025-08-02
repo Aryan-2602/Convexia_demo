@@ -28,11 +28,13 @@ import mlflow
 mlflow.set_tracking_uri("file://" + str(Path(__file__).resolve().parent.parent / "mlruns"))
 mlflow.set_experiment("toxicity_pipeline")
 
+
 def run_toxicity_pipeline(smiles: str):
     try:
         with mlflow.start_run(run_name="toxicity_session"):
 
             mlflow.log_param("smiles_input", smiles)
+            os.makedirs("outputs/shap", exist_ok=True)
 
             # 1. Input Preprocessing
             mol_data = input_preprocessing.preprocess_smiles(smiles)
@@ -44,11 +46,16 @@ def run_toxicity_pipeline(smiles: str):
             structural_alert_penalty = scoring.calculate_alert_penalty(alert_count)
             mlflow.log_metric("alert_count", alert_count)
 
-            # 3. General Toxicity
+            # 3. General Toxicity (Tree-based)
             general = general_toxicity.predict_general_toxicity(smiles)
             mlflow.log_metric("ld50", general["ld50"])
             mlflow.log_metric("general_tox", general["general_tox"])
             mlflow.log_metric("carcinogenicity", general["carcinogenicity"])
+            explainability.explain_tree_model(
+                model=general["model"],
+                features=general["features"],
+                output_path="outputs/shap/general_tox.png"
+            )
 
             # 4. Organ Toxicity
             organ = organ_toxicity.predict_organ_toxicity(smiles)
@@ -76,29 +83,40 @@ def run_toxicity_pipeline(smiles: str):
             immunotox = immunotoxicity.predict_immunotoxicity(smiles)
             mlflow.log_metric("immunotoxicity", immunotox)
 
-            # 10. Tox21 Transformer
+            # 10. Tox21 Transformer (Transformer-based)
             tox21_score = tox21_transformer.predict_tox21_score(smiles)
             mlflow.log_metric("tox21_score", tox21_score)
+            explainability.explain_transformer_model(
+                model=tox21_transformer.model,
+                tokenizer=tox21_transformer.tokenizer,
+                smiles=smiles,
+                output_path="outputs/shap/tox21_transformer.png"
+            )
 
             # 11. Ames
             ames_score = ames_toxicity.predict_ames_toxicity(smiles)
             mlflow.log_metric("ames_score", ames_score)
 
-            # 12. hERG
+            # 12. hERG (TDC-style model)
             herg_score = herg_toxicity.predict_herg_toxicity(smiles)
             mlflow.log_metric("herg_score", herg_score)
-            
+            explainability.explain_tdc_model(
+                model=herg_toxicity.model,
+                smiles=smiles,
+                featurizer=herg_toxicity.featurizer,
+                output_path="outputs/shap/herg_model.png"
+            )
+
             # 13. Metabolism
             metabolism_score = metabolism.predict_metabolism(smiles)
-            mlflow.log_metric("metabolism_score",metabolism_score)
+            mlflow.log_metric("metabolism_score", metabolism_score)
 
-            # 14. Explainability
+            # 14. Explainability (confidence + disagreements)
             confidence = explainability.compute_confidence()
             mlflow.log_metric("model_confidence", confidence)
-
             disagreements = explainability.find_disagreements(organ)
 
-            # 14. Composite Score
+            # 15. Composite Score
             values = {
                 "general_tox": general["general_tox"],
                 "organ_tox_avg": organ_tox_avg,
@@ -111,13 +129,12 @@ def run_toxicity_pipeline(smiles: str):
                 "tox21_score": tox21_score,
                 "ames_toxicity_score": ames_score,
                 "herg_toxicity_score": herg_score,
-                "metabolism_score":metabolism_score
+                "metabolism_score": metabolism_score
             }
-
             composite_score = scoring.compute_composite_score(values)
             mlflow.log_metric("composite_score", composite_score)
 
-            # Flags
+            # 16. Flags
             flags = []
             if organ_tox_avg > 0.4:
                 flags.append("high organ-specific toxicity")
@@ -131,12 +148,12 @@ def run_toxicity_pipeline(smiles: str):
                 flags.append("ames model indicates toxicity")
             if herg_score < 0.001:
                 flags.append("herg model indicates heart risk")
-            if metabolism_score>0.4:
+            if metabolism_score > 0.4:
                 flags.append("metabolism score indicates a metabolism risk")
 
             mlflow.log_text("\n".join(flags), artifact_file="flags.txt")
 
-            # Output JSON
+            # 17. Output JSON
             output = {
                 "composite_score": composite_score,
                 "organ_toxicity": organ,
@@ -150,7 +167,7 @@ def run_toxicity_pipeline(smiles: str):
                 "herg_toxicity_score": round(herg_score, 2),
                 "structural_alerts": alert_list,
                 "ld50": general["ld50"],
-                "metabolism_score":metabolism_score,
+                "metabolism_score": metabolism_score,
                 "model_confidence": confidence,
                 "flags": flags
             }

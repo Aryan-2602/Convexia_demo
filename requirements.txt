@@ -20,6 +20,7 @@ transformers
 SQLAlchemy
 xgboost 
 datetime
+shap
 scikit-learn
 joblib
 DeepPurpose 
