@@ -29,5 +29,6 @@ datetime
 fastapi 
 celery 
 redis 
+loguru
 uvicorn
 scikit-learn
