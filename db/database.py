@@ -36,10 +36,4 @@ def init_db():
 
     conn.commit()
     conn.close()
-    
-def delete_old_predictions():
-    db = SessionLocal()
-    cutoff = datetime.now(timezone.UTC) - timedelta(days=90)
-    db.execute(text("DELETE FROM predictions WHERE created_at < :cutoff"), {"cutoff": cutoff})
-    db.commit()
-    db.close()
+
