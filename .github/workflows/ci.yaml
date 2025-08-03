@@ -12,12 +12,18 @@ on:
 jobs:
   ci-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 10  # Prevent hanging jobs
 
     services:
       redis:
         image: redis
         ports:
           - 6379:6379
+
+    env:
+      HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
+      CI: true
+      PYTHONPATH: ${{ github.workspace }}
 
     steps:
       - name: Checkout repository
@@ -34,28 +40,43 @@ jobs:
           pip install -r requirements.txt
           pip install flake8 pytest dvc[gs] mlflow
 
+      - name: Cache Hugging Face models
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/huggingface
+          key: hf-cache-${{ hashFiles('requirements.txt') }}
+          restore-keys: hf-cache-
+
       - name: Lint with flake8
         run: |
           echo "Running flake8 linting..."
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
 
-      - name: Run unit tests with pytest (with timeout and skip for CI)
-        env:
-          HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
-          PYTHONPATH: ${{ github.workspace }}
-          CI: "true"
+      - name: Run unit tests with pytest
         run: |
           echo "Running unit tests..."
           timeout 300 pytest tests/
 
+      - name: Pull minimal DVC data
+        run: |
+          echo "Pulling required DVC artifacts..."
+          dvc pull models data --force
+
       - name: Reproduce DVC pipeline
         run: |
           echo "Reproducing DVC pipeline..."
-          dvc pull -f  # fetch latest data/models from remote storage
-          dvc repro    # run pipeline and verify outputs
+          dvc repro
 
       - name: Build Docker image
         run: |
           echo "Building Docker image..."
           docker build -t toxicity-api .
+
+      - name: Clean up disk space
+        if: always()
+        run: |
+          echo "Cleaning up temp files and caches..."
+          rm -rf ~/.cache/huggingface
+          rm -rf ~/.dvc/cache
+          rm -rf /tmp/*
