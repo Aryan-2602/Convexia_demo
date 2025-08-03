@@ -43,6 +43,7 @@ jobs:
       - name: Run unit tests with pytest
         env:
           HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
+          PYTHONPATH: ${{ github.workspace }}
         run: |
           echo "Running unit tests..."
           pytest tests/
