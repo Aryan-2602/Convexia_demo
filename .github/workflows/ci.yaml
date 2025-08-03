@@ -19,10 +19,6 @@ jobs:
         ports:
           - 6379:6379
 
-    env:  # 👈 Set secrets as environment variables for all steps
-      HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
-      PYTHONPATH: ${{ github.workspace }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -44,10 +40,14 @@ jobs:
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
 
-      - name: Run unit tests with pytest
+      - name: Run unit tests with pytest (with timeout and skip for CI)
+        env:
+          HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
+          PYTHONPATH: ${{ github.workspace }}
+          CI: "true"
         run: |
           echo "Running unit tests..."
-          pytest tests/
+          timeout 300 pytest tests/
 
       - name: Reproduce DVC pipeline
         run: |

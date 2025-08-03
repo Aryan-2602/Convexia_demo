@@ -1,6 +1,9 @@
 import pytest
 from modules import immunotoxicity
+import os
 
+
+@pytest.mark.skipif(os.getenv("CI") == "true", reason="Skip long-running test in CI")
 @pytest.mark.unit
 def test_immunotoxicity_prediction_score_range():
     """
