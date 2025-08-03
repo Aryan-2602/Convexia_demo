@@ -41,11 +41,12 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
 
       - name: Run unit tests with pytest
+        env:
+          HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
         run: |
           echo "Running unit tests..."
-          export PYTHONPATH="${{ github.workspace }}"
           pytest tests/
-        
+
       - name: Reproduce DVC pipeline
         run: |
           echo "Reproducing DVC pipeline..."
