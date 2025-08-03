@@ -43,8 +43,9 @@ jobs:
       - name: Run unit tests with pytest
         run: |
           echo "Running unit tests..."
+          export PYTHONPATH="${{ github.workspace }}"
           pytest tests/
-
+        
       - name: Reproduce DVC pipeline
         run: |
           echo "Reproducing DVC pipeline..."
