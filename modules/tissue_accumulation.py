@@ -187,9 +187,15 @@ def train_vd_model():
 
 def predict_tissue_accumulation(smiles: str):
     from pathlib import Path
-    logger.info(f"Predicting tissue accumulation for: {smiles}")
+    from explainability import (
+        explain_tree_model,
+        compute_confidence,
+        find_disagreements
+    )
 
+    logger.info(f"Predicting tissue accumulation for: {smiles}")
     model_dir = Path("models")
+
     try:
         bbb_model = joblib.load(model_dir / "bbb_xgb_model.pkl")
         oct2_model = joblib.load(model_dir / "oct2_xgb_model.pkl")
@@ -199,29 +205,52 @@ def predict_tissue_accumulation(smiles: str):
         raise
 
     features = convert_smiles_column([smiles])
+    features = features.astype(np.float64)
 
-    bbb_prob = bbb_model.predict_proba(features)[0][1]
-    oct2_prob = oct2_model.predict_proba(features)[0][1]
-    vd_pred = vd_model.predict(features)[0]
+    # Start MLflow run for this prediction
+    mlflow.set_experiment("Tissue_Accumulation_Inference")
+    with mlflow.start_run(run_name="TissueAccumulation_Infer", nested=True):
+        mlflow.set_tag("model_type", "xgboost")
+        mlflow.set_tag("inference_module", "tissue_accumulation")
+        mlflow.set_tag("input_smiles", smiles)
 
-    if vd_pred <= 0.3:
-        vd_level = "low"
-    elif vd_pred <= 0.55:
-        vd_level = "moderate"
-    else:
-        vd_level = "high"
+        bbb_prob = float(bbb_model.predict_proba(features)[0][1])
+        oct2_prob = float(oct2_model.predict_proba(features)[0][1])
+        vd_pred = float(vd_model.predict(features)[0])
 
-    result = {
-        "brain": "high" if bbb_prob > 0.6 else "moderate" if bbb_prob > 0.4 else "low",
-        "kidney": "high" if oct2_prob > 0.6 else "moderate" if oct2_prob > 0.4 else "low",
-        "liver": vd_level
-    }
+        # Classification logic
+        brain = "high" if bbb_prob > 0.6 else "moderate" if bbb_prob > 0.4 else "low"
+        kidney = "high" if oct2_prob > 0.6 else "moderate" if oct2_prob > 0.4 else "low"
+        if vd_pred <= 0.3:
+            liver = "low"
+        elif vd_pred <= 0.55:
+            liver = "moderate"
+        else:
+            liver = "high"
 
-    logger.debug(f"Tissue accumulation result: {result}")
+        result = {"brain": brain, "kidney": kidney, "liver": liver}
+        logger.debug(f"Tissue accumulation result: {result}")
+
+        # Log metrics
+        mlflow.log_metric("brain_accumulation_score", bbb_prob)
+        mlflow.log_metric("kidney_accumulation_score", oct2_prob)
+        mlflow.log_metric("liver_vd_score", vd_pred)
+
+        # Simulated confidence
+        confidence = compute_confidence()
+        mlflow.log_metric("model_confidence", confidence)
+
+        # Disagreement
+        disagreement_messages = find_disagreements({
+            "brain": bbb_prob,
+            "kidney": oct2_prob,
+            "liver": vd_pred
+        })
+        mlflow.log_metric("num_disagreements", len(disagreement_messages))
+
+        # SHAP plots
+        explain_tree_model(bbb_model, features, output_path="outputs/shap/bbb_shap.png")
+        explain_tree_model(oct2_model, features, output_path="outputs/shap/oct2_shap.png")
+        explain_tree_model(vd_model, features, output_path="outputs/shap/vd_shap.png")
+
     return result
-
-# ---- OPTIONAL: RUN ALL TRAINERS ---- #
-if __name__ == "__main__":
-    train_bbb_model()
-    train_oct2_model()
-    train_vd_model()

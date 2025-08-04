@@ -13,8 +13,9 @@ import mlflow
 import mlflow.sklearn
 from mlflow.models.signature import infer_signature
 from utils.logger import logger
+from utils.register_models import register_model_if_needed
 
-mlflow.set_tracking_uri("file://"+str(Path(__file__).resolve().parent.parent / "mlruns"))
+mlflow.set_tracking_uri("file://" + str(Path(__file__).resolve().parent.parent / "mlruns"))
 
 
 def convert_smiles_column(X: pd.Series) -> pd.DataFrame:
@@ -34,7 +35,7 @@ def convert_smiles_column(X: pd.Series) -> pd.DataFrame:
 
 def train_ld50_model():
     mlflow.set_experiment("LD50_Experiment")
-    with mlflow.start_run(run_name="LD50_Model_Training"):
+    with mlflow.start_run(run_name="LD50_Model_Training") as run:
         logger.info("Training LD50 regression model...")
         data = Tox(name='LD50_Zhu')
         tox = data.get_split(method='random')
@@ -56,36 +57,30 @@ def train_ld50_model():
             random_state=42
         )
 
-        # Log hyperparameters
         mlflow.log_params(model.get_params())
-
-        # Fit model
         model.fit(X_train_enc, y_train, eval_set=[(X_val_enc, y_val)], verbose=True)
 
-        # Predict and evaluate
         y_pred = model.predict(X_test_enc)
         mse = mean_squared_error(y_test, y_pred)
         r2 = r2_score(y_test, y_pred)
 
-        # Log metrics
         mlflow.log_metric("test_mse", mse)
         mlflow.log_metric("test_r2", r2)
 
         logger.info(f"LD50 MSE: {mse:.4f}")
         logger.info(f"LD50 R²: {r2:.4f}")
 
-        # Log model with input schema
-        X_test_enc = X_test_enc.astype(np.float64) 
-        input_example = X_test_enc.iloc[:1]
+        input_example = X_test_enc.iloc[:1].astype(np.float64)
         signature = infer_signature(X_test_enc, y_pred[:1])
         mlflow.sklearn.log_model(
             sk_model=model,
-            name="ld50_model",
+            artifact_path="ld50_model",
             input_example=input_example,
             signature=signature
         )
 
-        # Save locally as well
+        register_model_if_needed("ld50_model", run.info.run_id, "ld50_model")
+
         os.makedirs("models", exist_ok=True)
         joblib.dump(model, "models/ld50_xgb_model.pkl")
         logger.success("LD50 model saved to models/ld50_xgb_model.pkl")
@@ -93,7 +88,7 @@ def train_ld50_model():
 
 def train_carcinogenicity_model():
     mlflow.set_experiment("Carcinogenicity_Experiment")
-    with mlflow.start_run(run_name="Carcinogenicity_Model_Training"):
+    with mlflow.start_run(run_name="Carcinogenicity_Model_Training") as run:
         logger.info("Training Carcinogenicity classification model...")
         data = Tox(name='Carcinogens_Lagunin')
         carc = data.get_split(method='random')
@@ -124,30 +119,31 @@ def train_carcinogenicity_model():
         acc = accuracy_score(y_test, y_pred)
         f1 = f1_score(y_test, y_pred)
 
+        mlflow.log_metric("test_accuracy", acc)
+        mlflow.log_metric("test_f1_score", f1)
+
         logger.info(f"Carcinogenicity Accuracy: {acc:.4f}")
         logger.info(f"Carcinogenicity F1 Score: {f1:.4f}")
 
-        mlflow.log_metric("test_accuracy", acc)
-        mlflow.log_metric("test_f1_score", f1)
-        
-        # Log model with input schema
-        X_test_enc = X_test_enc.astype(np.float64) 
-        input_example = X_test_enc.iloc[:1]
+        input_example = X_test_enc.iloc[:1].astype(np.float64)
         signature = infer_signature(X_test_enc, y_pred[:1])
         mlflow.sklearn.log_model(
             sk_model=model,
-            name="carcinogenicity_model",
+            artifact_path="carcinogenicity_model",
             input_example=input_example,
             signature=signature
         )
+
+        register_model_if_needed("carcinogenicity_model", run.info.run_id, "carcinogenicity_model")
 
         os.makedirs('models', exist_ok=True)
         joblib.dump(model, "models/carcinogenicity_xgb_model.pkl")
         logger.success("Carcinogenicity model saved to models/carcinogenicity_xgb_model.pkl")
 
+
 def train_general_tox_model():
     mlflow.set_experiment("GeneralTox_Experiment")
-    with mlflow.start_run(run_name="GeneralTox_Model_Training"):
+    with mlflow.start_run(run_name="GeneralTox_Model_Training") as run:
         logger.info("Training General Toxicity classifier (Tox21)...")
         label_list = retrieve_label_name_list('Tox21')
         data = Tox(name='Tox21', label_name=label_list[0])
@@ -179,24 +175,24 @@ def train_general_tox_model():
         acc = accuracy_score(y_test, y_pred)
         f1 = f1_score(y_test, y_pred)
 
+        mlflow.log_metric("test_accuracy", acc)
+        mlflow.log_metric("test_f1_score", f1)
+
         logger.info(f"General Tox Accuracy: {acc:.4f}")
         logger.info(f"General Tox F1 Score: {f1:.4f}")
 
-        mlflow.log_metric("test_accuracy", acc)
-        mlflow.log_metric("test_f1_score", f1)
-        
-        # Log model with input schema
-        X_test_enc = X_test_enc.astype(np.float64) 
-        input_example = X_test_enc.iloc[:1]
+        input_example = X_test_enc.iloc[:1].astype(np.float64)
         signature = infer_signature(X_test_enc, y_pred[:1])
         mlflow.sklearn.log_model(
             sk_model=model,
-            name="general_tox_model",
+            artifact_path="general_tox_model",
             input_example=input_example,
             signature=signature
         )
 
-        os.makedirs('models',exist_ok=True)
+        register_model_if_needed("general_tox_model", run.info.run_id, "general_tox_model")
+
+        os.makedirs('models', exist_ok=True)
         joblib.dump(model, "models/generaltox_xgb_model.pkl")
         logger.success("General Tox model saved to models/generaltox_xgb_model.pkl")
 

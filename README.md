@@ -1,10 +1,10 @@
-# Convexia_demo# 🧪 Toxicity & Safety Evaluation Pipeline
+# 🧪 Toxicity & Safety Evaluation Pipeline
 
 A modular pipeline for predicting toxicity and safety of small-molecule compounds from their SMILES strings. This system combines predictive models, structural alert filters, accumulation logic, and scoring heuristics to generate a comprehensive toxicity profile in JSON format.
 
 ## 🚀 Features
 
-- ✅ Accepts SMILES strings as input
+- ✅ Accepts SMILES strings as input  
 - 🧠 Predicts:
   - General Toxicity: LD50, Carcinogenicity, Tox21
   - Organ Toxicity: Cardio, Hepatic, Renal
@@ -18,21 +18,27 @@ A modular pipeline for predicting toxicity and safety of small-molecule compound
 - 🔍 Explainability:
   - Model confidence
   - Disagreement among organ predictors
+  - SHAP plots for XGBoost-based predictors
+- 📈 MLflow tracking for:
+  - Training runs
+  - Inference predictions
+  - SHAP visualizations
+  - Tags and artifacts
 - 🪵 Clean logging using Loguru
-- 📁 Stores output as unique JSON files in outputs/
+- 📁 Stores output as unique JSON files in `outputs/`
 
 ## 📁 Directory Structure
 
-``` 
 convexia_demo/
-├── run_pipeline.py # Main pipeline entry point 
-├── outputs/ # Stores JSON results
+├── run_pipeline.py # Main pipeline entry point
+├── outputs/ # Stores JSON results and SHAP plots
 ├── logs/ # Logging directory
 ├── models/ # Trained model files
 ├── data/ # Raw training datasets
 │
 ├── utils/
-│ └── logger.py # Loguru logger configuration
+│ ├── logger.py # Loguru logger configuration
+│ └── explainability.py # SHAP + confidence + disagreement utilities
 │
 ├── modules/
 │ ├── input_preprocessing.py # SMILES featurization (ECFP + MACCS)
@@ -42,11 +48,10 @@ convexia_demo/
 │ ├── mito_toxicity.py # Mitochondrial toxicity prediction (stub)
 │ ├── morpho_cytotoxicity.py # Morphological cytotoxicity prediction (stub)
 │ ├── immunotoxicity.py # Immunotoxicity prediction (stub)
-│ ├── tissue_accumulation.py # BBB, OCT2, VD prediction
+│ ├── tissue_accumulation.py # BBB, OCT2, VD prediction + SHAP + logging
 │ ├── structural_alerts.py # PAINS + BRENK alerts
 │ ├── scoring.py # Composite score + penalties
-│ └── explainability.py # Confidence & module disagreement checks
-```
+│ └── register_models.py # Optional MLflow model registration helper
 
 ## 🧪 How to Run
 
@@ -59,16 +64,10 @@ pip install -r requirements.txt
 
 # Step 3: Run the pipeline
 python run_pipeline.py
-
+You will be prompted to enter a SMILES string. The system will run all modules and save the result as a JSON file in outputs/, while also logging metrics to MLflow and saving SHAP plots. 
 ```
 
-You will be prompted to enter a SMILES string. The system will run all modules and save the result as a JSON file in outputs/.
-
-
-
-##  🔬 Sample Output (Truncated)
-
-json
+🔬 Sample Output (Truncated)
 {
   "composite_score": 0.36,
   "organ_toxicity": {
@@ -93,14 +92,10 @@ json
   ],
   "model_confidence": 0.93
 }
-
-
-## ⚙️ Composite Score Logic
-
-The final score is calculated as a weighted sum:
-
+⚙️ Composite Score Logic
+The final score is calculated as a weighted sum of prediction components:
 15% General Toxicity
-20% Organ Toxicity (avg)
+20% Organ Toxicity (average)
 15% Neurotoxicity
 10% Mitochondrial Toxicity
 10% Morphological Cytotoxicity
@@ -108,32 +103,35 @@ The final score is calculated as a weighted sum:
 10% Tissue Accumulation Penalty
 10% Structural Alerts Penalty
 Final score is clipped between 0 and 1 and rounded to two decimals.
+📈 MLflow Tracking
+All training and inference runs are tracked via MLflow:
+Parameters, metrics, and tags
+SHAP visualizations
+Confidence and disagreement scores
+Model artifacts (XGBoost binaries, input schema)
+Tracked locally in the mlruns/ directory.
+To launch the tracking UI:
 
-##  📌 Notes
-
-Logging is enabled both to console and file (logs/pipeline.log).
-JSON filenames are uniquely generated using the compound's canonical SMILES.
-Stub models (e.g., mito, neuro, morpho) can be replaced by actual trained models.
-To retrain general toxicity models, run:
-bash
+mlflow ui
+📌 Notes
+Logging is enabled both to console and logs/pipeline.log
+SHAP plots are saved in outputs/shap/
+JSON filenames are uniquely generated using the compound's canonical SMILES
+Stub models (e.g., mito, neuro, morpho) can be replaced by trained ones
+To retrain general toxicity models:
 python modules/general_toxicity.py
-
-
-##  👩‍🔬 Acknowledgements
-
-TDC (Therapeutics Data Commons) for access to toxicity datasets
+👩‍🔬 Acknowledgements
+TDC for access to toxicity datasets
 RDKit for molecular featurization and alerting
-XGBoost for all classifier and regressor models
-
-
-##  🧠 TODOs
-
+XGBoost for all classifier/regressor models
+MLflow for experiment tracking
+Loguru for structured logging
+SHAP for explainability
+🧠 TODOs
 Replace stubbed models (mito, neuro, morpho, immune) with trained versions
 Add uncertainty quantification for all predictors
 Incorporate graph-based models and image-based inference where applicable
 Add Streamlit/Gradio frontend for live demos
-
-
-##  📬 Contact
-
+📬 Contact
 For issues, contributions, or collaborations, feel free to reach out!
+Let me know when you're ready to integrate Streamlit or visualize SHAP plots directly in the frontend — we can reuse everything from this README.
